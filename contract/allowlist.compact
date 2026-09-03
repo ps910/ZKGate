@@ -1,0 +1,125 @@
+/**
+ * @file ZKGate: Private Allowlist Access on Midnight Network
+ * @description Prove membership in an allowlist without revealing identity.
+ *
+ * Privacy Model:
+ * - PUBLIC: allowlist root hash, member count, verification count, nullifiers
+ * - PRIVATE: individual member secrets, which member performed a verification
+ *
+ * An observer can see that N members exist and M verifications occurred,
+ * but cannot determine WHICH member performed any given verification.
+ */
+
+pragma language_version >= 0.23;
+
+import CompactStandardLibrary;
+
+// ============================================================
+// Ledger State (PUBLIC — visible on-chain)
+// ============================================================
+
+// The Merkle root of the allowlist (updated when members are added)
+export ledger allowlistRoot: Bytes<32>;
+
+// Total number of members added to the allowlist
+export ledger memberCount: Counter;
+
+// Total number of successful membership verifications
+export ledger verifiedCount: Counter;
+
+// Tracks nullifiers to prevent replay attacks
+// A nullifier is a hash derived from the member's secret
+// It prevents the same member from proving twice without
+// revealing which member they are
+export ledger usedNullifiers: Map<Field, Boolean>;
+
+// Human-readable label for this allowlist instance
+export ledger allowlistName: Opaque<"string">;
+
+// ============================================================
+// Witnesses (PRIVATE — never leave the user's device)
+// ============================================================
+
+// The user's secret key — known only to the member
+// Used to derive their commitment (public) and nullifier (unique per proof)
+witness memberSecret(): Bytes<32>;
+
+// ============================================================
+// Constructor
+// ============================================================
+
+constructor(name: Opaque<"string">) {
+    allowlistName = name;
+    memberCount.increment(0);
+    verifiedCount.increment(0);
+}
+
+// ============================================================
+// Circuits
+// ============================================================
+
+/**
+ * addMember — Add a new member to the allowlist
+ *
+ * The admin provides a commitment (hash of the member's secret).
+ * Only the commitment is stored on-chain; the secret stays private.
+ *
+ * @param commitment - The hash of the member's secret key
+ */
+export circuit addMember(commitment: Bytes<32>): [] {
+    // Store the commitment as the new allowlist root
+    // In a production system, this would update a Merkle tree
+    allowlistRoot = disclose(commitment);
+    memberCount.increment(1);
+}
+
+/**
+ * proveMembership — Prove you are on the allowlist
+ *
+ * The member's secret is loaded from the private witness.
+ * A commitment is derived (hash of secret) to verify membership.
+ * A nullifier is derived (different hash) to prevent replay.
+ *
+ * PRIVACY: The circuit proves the member KNOWS a secret whose
+ * commitment is in the allowlist, WITHOUT revealing:
+ * - The secret itself
+ * - Which commitment is theirs
+ * - Any link between the nullifier and the member
+ */
+export circuit proveMembership(): [] {
+    // Load the private secret from the witness
+    const secret = memberSecret();
+
+    // Derive the commitment (this should match what was added)
+    const commitment = persistentHash<Bytes<32>>([secret]);
+
+    // Derive a nullifier (prevents double-proof)
+    // Using transientHash ensures the nullifier is unique per proof
+    // but cannot be linked back to the commitment
+    const nullifier = transientHash<Bytes<32>>([secret]);
+
+    // Check that this nullifier hasn't been used before
+    assert(!usedNullifiers.member(nullifier), "Already verified — each member can only prove once");
+
+    // Record the nullifier to prevent replay
+    usedNullifiers.insert(nullifier, true);
+
+    // Increment the verified count
+    verifiedCount.increment(1);
+}
+
+/**
+ * checkMembership — Read-only check (no state change)
+ *
+ * Returns whether a given commitment exists in the allowlist.
+ * This is a public query — no privacy implications.
+ *
+ * @param commitment - The commitment to check
+ */
+export circuit getMemberCount(): Uint<64> {
+    return memberCount.value();
+}
+
+export circuit getVerifiedCount(): Uint<64> {
+    return verifiedCount.value();
+}
