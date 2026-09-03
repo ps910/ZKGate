@@ -11,7 +11,7 @@ Built with **Compact smart contracts**, **React + TypeScript**, and the **Midnig
 > **Local deployments (`localhost`, `undeployed`, mock devnets) are strictly prohibited.**
 > See the complete [DEPLOYMENT.md](DEPLOYMENT.md) for full phase-by-phase documentation.
 
-![CI](https://github.com/YOUR_USERNAME/steller-moon-midnight/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/ps910/NEW-MOON-PROJECT-/actions/workflows/ci.yml/badge.svg)
 
 ---
 
@@ -132,8 +132,8 @@ The `disclose()` function in Compact is used **deliberately** — only the allow
 5. **Lace Wallet** — [Install browser extension](https://www.lace.io/) and configure to **Midnight Preprod**
 6. **Clone & Install**:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/steller-moon-midnight.git
-   cd steller-moon-midnight
+   git clone https://github.com/ps910/NEW-MOON-PROJECT-.git
+   cd NEW-MOON-PROJECT-
    npm install
    ```
 
