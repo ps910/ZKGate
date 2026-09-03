@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
   <defs>
     <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#080812"/>
-      <stop offset="50%" stop-color="#0e0e22"/>
-      <stop offset="100%" stop-color="#0a0a16"/>
+      <stop offset="0%" stop-color="#070712"/>
+      <stop offset="50%" stop-color="#0d0d20"/>
+      <stop offset="100%" stop-color="#090916"/>
     </linearGradient>
     <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%" stop-color="#7c5cfc"/>
@@ -11,100 +11,133 @@
     </linearGradient>
     <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#16162e"/>
-      <stop offset="100%" stop-color="#121226"/>
+      <stop offset="100%" stop-color="#101024"/>
     </linearGradient>
-    <filter id="glow" x="-10%" y="-10%" width="120%" height="120%">
-      <feGaussianBlur stdDeviation="8" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
   </defs>
 
-  <!-- Background -->
-  <rect width="1200" height="760" fill="url(#bgGrad)"/>
+  <rect width="1200" height="800" fill="url(#bgGrad)"/>
 
-  <!-- Top Navigation Bar -->
-  <rect x="0" y="0" width="1200" height="70" fill="#101026" stroke="#25254a" stroke-width="1"/>
-  
-  <!-- Logo & Title -->
-  <circle cx="50" cy="35" r="18" fill="url(#accentGrad)"/>
-  <path d="M 44 35 L 48 39 L 57 30" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
-  <text x="80" y="42" fill="#ffffff" font-family="'Inter', -apple-system, sans-serif" font-size="22" font-weight="800" letter-spacing="-0.5">ZKGate</text>
-  <rect x="175" y="26" width="72" height="20" rx="10" fill="#7c5cfc" fill-opacity="0.2" stroke="#7c5cfc" stroke-width="1"/>
-  <text x="211" y="40" fill="#a78bfa" font-family="'Inter', sans-serif" font-size="11" font-weight="700" text-anchor="middle">PREPROD</text>
+  <!-- Top Navbar -->
+  <rect x="0" y="0" width="1200" height="70" fill="#0f0f24" stroke="#25254a" stroke-width="1"/>
+  <circle cx="45" cy="35" r="18" fill="url(#accentGrad)"/>
+  <text x="45" y="41" fill="#ffffff" font-family="'Inter', sans-serif" font-size="20" text-anchor="middle">🌌</text>
+  <text x="75" y="38" fill="#ffffff" font-family="'Inter', sans-serif" font-size="20" font-weight="800">ShroudWar</text>
+  <text x="75" y="52" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="10" font-weight="600" letter-spacing="0.5">ON-CHAIN FOG-OF-WAR · LEVEL 4</text>
 
-  <!-- Navigation Pill Statuses -->
-  <rect x="740" y="24" width="220" height="24" rx="12" fill="#10b981" fill-opacity="0.12" stroke="#10b981" stroke-width="0.8"/>
-  <circle cx="755" cy="36" r="4" fill="#10b981"/>
-  <text x="860" y="40" fill="#10b981" font-family="'Inter', sans-serif" font-size="11" font-weight="600" text-anchor="middle">Midnight Preprod Connected</text>
+  <rect x="290" y="24" width="150" height="24" rx="12" fill="#10b981" fill-opacity="0.12" stroke="#10b981" stroke-width="0.8"/>
+  <circle cx="304" cy="36" r="4" fill="#10b981"/>
+  <text x="375" y="40" fill="#10b981" font-family="'Inter', sans-serif" font-size="11" font-weight="700" text-anchor="middle">MIDNIGHT PREPROD</text>
 
-  <rect x="980" y="18" width="190" height="34" rx="8" fill="url(#accentGrad)"/>
-  <text x="1075" y="40" fill="#ffffff" font-family="'Inter', sans-serif" font-size="12" font-weight="700" text-anchor="middle">0x3f2a...4f3a (Lace)</text>
+  <rect x="740" y="20" width="220" height="32" rx="6" fill="#181834" stroke="#2d2d5a" stroke-width="1"/>
+  <text x="752" y="40" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">Circuit: 0x8b3f...5d4c</text>
 
-  <!-- Main Hero Content -->
-  <text x="600" y="130" fill="#ffffff" font-family="'Inter', sans-serif" font-size="34" font-weight="800" text-anchor="middle">Private Allowlist Access</text>
-  <text x="600" y="160" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="15" text-anchor="middle">Prove membership without revealing identity using Zero-Knowledge proofs on Midnight Preprod</text>
+  <rect x="980" y="18" width="180" height="34" rx="8" fill="url(#accentGrad)"/>
+  <text x="1070" y="40" fill="#ffffff" font-family="'Inter', sans-serif" font-size="12" font-weight="700" text-anchor="middle">0x3f2a...4f3a (Lace)</text>
 
-  <!-- Left Column: Prover Card -->
-  <rect x="60" y="195" width="520" height="340" rx="12" fill="url(#cardGrad)" stroke="#2c2c58" stroke-width="1.2"/>
-  <rect x="60" y="195" width="520" height="50" rx="12" fill="#1c1c38"/>
-  <text x="85" y="226" fill="#f8fafc" font-family="'Inter', sans-serif" font-size="16" font-weight="700">🔐 Prove Allowlist Membership</text>
-  
-  <text x="85" y="275" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="13">1. Enter or generate your private member secret:</text>
-  <rect x="85" y="290" width="470" height="42" rx="8" fill="#0c0c1a" stroke="#37376b" stroke-width="1"/>
-  <text x="105" y="316" fill="#a78bfa" font-family="'JetBrains Mono', monospace" font-size="12">0x4a8f9c2d1e0b3a7f8e5c6d2a1b4e9f0c3d5a7b...</text>
+  <!-- Left Side: 10x10 Fog of War Grid -->
+  <rect x="40" y="90" width="550" height="520" rx="12" fill="url(#cardGrad)" stroke="#272750" stroke-width="1.2"/>
+  <text x="65" y="122" fill="#f8fafc" font-family="'Inter', sans-serif" font-size="15" font-weight="700">🌌 10x10 Fog-of-War Grid</text>
+  <text x="320" y="122" fill="#a78bfa" font-family="'JetBrains Mono', monospace" font-size="11">Preprod Circuit: 0x8b3f...5d4c</text>
 
-  <!-- Proof State Success Banner -->
-  <rect x="85" y="350" width="470" height="95" rx="8" fill="#10b981" fill-opacity="0.1" stroke="#10b981" stroke-width="1"/>
-  <circle cx="115" cy="385" r="14" fill="#10b981"/>
-  <path d="M 109 385 L 113 389 L 122 380" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
-  <text x="140" y="380" fill="#10b981" font-family="'Inter', sans-serif" font-size="14" font-weight="700">Zero-Knowledge Proof Verified On-Chain!</text>
-  <text x="140" y="402" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="12">Nullifier registered: 0x9e12...b4f0 • No identity disclosed</text>
-  <text x="140" y="424" fill="#64748b" font-family="'Inter', sans-serif" font-size="11">Gas: 0.002 tDUST • Proof Time: 2.1s • Preprod Block: #184,920</text>
+  <!-- Legend -->
+  <circle cx="68" cy="142" r="4" fill="#3b82f6"/>
+  <text x="78" y="146" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="10">Own Unit (Shielded)</text>
+  <circle cx="188" cy="142" r="4" fill="#ef4444"/>
+  <text x="198" y="146" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="10">Radar Ping</text>
+  <circle cx="280" cy="142" r="4" fill="#10b981"/>
+  <text x="290" y="146" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="10">Scouted Clear</text>
+  <circle cx="380" cy="142" r="4" fill="#334155"/>
+  <text x="390" y="146" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="10">Deep Fog</text>
 
-  <rect x="85" y="465" width="470" height="46" rx="8" fill="url(#accentGrad)"/>
-  <text x="320" y="493" fill="#ffffff" font-family="'Inter', sans-serif" font-size="14" font-weight="700" text-anchor="middle">Generate &amp; Submit ZK Proof</text>
+  <!-- Grid Preview Representation -->
+  <rect x="65" y="160" width="500" height="430" rx="8" fill="#090918" stroke="#222244" stroke-width="1"/>
+  <g font-family="'JetBrains Mono', monospace" font-size="11" fill="#475569">
+    <!-- Grid Cells Background -->
+    <rect x="80" y="175" width="46" height="40" rx="3" fill="#13132a" stroke="#232348"/>
+    <text x="85" y="190" font-size="8" fill="#334155">1,1</text>
+    <text x="96" y="202" font-size="14">🛡️</text>
 
-  <!-- Right Column: Admin & Stats -->
-  <rect x="620" y="195" width="520" height="155" rx="12" fill="url(#cardGrad)" stroke="#2c2c58" stroke-width="1.2"/>
-  <text x="645" y="230" fill="#f8fafc" font-family="'Inter', sans-serif" font-size="15" font-weight="700">📊 On-Chain Public Ledger Stats</text>
+    <rect x="130" y="175" width="46" height="40" rx="3" fill="#13132a" stroke="#232348"/>
+    <text x="135" y="190" font-size="8" fill="#334155">2,1</text>
+    <text x="148" y="200" font-size="12" fill="#3b82f6">✦</text>
 
-  <rect x="645" y="250" width="150" height="75" rx="8" fill="#0d0d1e" stroke="#2a2a52" stroke-width="1"/>
-  <text x="660" y="275" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11">Members</text>
-  <text x="660" y="308" fill="#a78bfa" font-family="'Inter', sans-serif" font-size="24" font-weight="800">42</text>
+    <rect x="180" y="175" width="46" height="40" rx="3" fill="#13132a" stroke="#232348"/>
+    <text x="185" y="190" font-size="8" fill="#334155">3,1</text>
+    <text x="198" y="200" font-size="12" fill="#3b82f6">✦</text>
 
-  <rect x="805" y="250" width="150" height="75" rx="8" fill="#0d0d1e" stroke="#2a2a52" stroke-width="1"/>
-  <text x="820" y="275" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11">Verifications</text>
-  <text x="820" y="308" fill="#06b6d4" font-family="'Inter', sans-serif" font-size="24" font-weight="800">128</text>
+    <rect x="80" y="220" width="46" height="40" rx="3" fill="#13132a" stroke="#232348"/>
+    <text x="85" y="235" font-size="8" fill="#334155">1,2</text>
+    <text x="98" y="245" font-size="12" fill="#3b82f6">✦</text>
 
-  <rect x="965" y="250" width="150" height="75" rx="8" fill="#0d0d1e" stroke="#2a2a52" stroke-width="1"/>
-  <text x="980" y="275" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11">Max Capacity</text>
-  <text x="980" y="308" fill="#10b981" font-family="'Inter', sans-serif" font-size="24" font-weight="800">1,000</text>
+    <rect x="130" y="220" width="46" height="40" rx="3" fill="#1d1d42" stroke="#7c5cfc" stroke-width="1.5"/>
+    <text x="135" y="235" font-size="8" fill="#a78bfa">2,2</text>
+    <text x="146" y="247" font-size="14">🛡️</text>
 
-  <!-- Right Column: Nullifier Access Log -->
-  <rect x="620" y="370" width="520" height="165" rx="12" fill="url(#cardGrad)" stroke="#2c2c58" stroke-width="1.2"/>
-  <text x="645" y="400" fill="#f8fafc" font-family="'Inter', sans-serif" font-size="14" font-weight="700">📜 Public Verification Events (Unlinkable Nullifiers)</text>
+    <!-- Radar Scout Cell -->
+    <rect x="380" y="445" width="46" height="40" rx="3" fill="#301520" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="385" y="460" font-size="8" fill="#ef4444">7,7</text>
+    <text x="395" y="472" font-size="14">📡</text>
 
-  <text x="645" y="430" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="11">BLOCK #184920 • nullifier: 0x9e12af...b4f0 • VERIFIED</text>
-  <text x="645" y="455" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="11">BLOCK #184892 • nullifier: 0x3d71bc...a801 • VERIFIED</text>
-  <text x="645" y="480" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="11">BLOCK #184761 • nullifier: 0xfe8204...99a2 • VERIFIED</text>
-  <text x="645" y="505" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="11">BLOCK #184510 • nullifier: 0x7c4912...e31b • VERIFIED</text>
+    <!-- Clear Cell -->
+    <rect x="280" y="355" width="46" height="40" rx="3" fill="#102620" stroke="#10b981"/>
+    <text x="285" y="370" font-size="8" fill="#10b981">5,5</text>
+    <text x="300" y="380" font-size="16" fill="#10b981">·</text>
+  </g>
 
-  <!-- Bottom: Privacy Model Matrix Banner -->
-  <rect x="60" y="555" width="1080" height="175" rx="12" fill="#121228" stroke="#2f2f5c" stroke-width="1"/>
-  <text x="90" y="585" fill="#ffffff" font-family="'Inter', sans-serif" font-size="15" font-weight="700">🛡️ Midnight Privacy Model: What Observers Learn vs Keep Private</text>
+  <!-- Right Side: Tactical Command Center -->
+  <rect x="610" y="90" width="550" height="340" rx="12" fill="url(#cardGrad)" stroke="#272750" stroke-width="1.2"/>
+  <text x="635" y="122" fill="#f8fafc" font-family="'Inter', sans-serif" font-size="15" font-weight="700">⚡ Tactical Command Center</text>
+  <rect x="990" y="106" width="150" height="22" rx="4" fill="#fbbf24" fill-opacity="0.12" stroke="#fbbf24" stroke-width="0.8"/>
+  <text x="1065" y="121" fill="#fbbf24" font-family="'Inter', sans-serif" font-size="10" font-weight="700" text-anchor="middle">Window: 3 Actions</text>
 
-  <rect x="90" y="602" width="510" height="108" rx="8" fill="#10b981" fill-opacity="0.08" stroke="#10b981" stroke-width="0.7"/>
-  <text x="110" y="625" fill="#10b981" font-family="'Inter', sans-serif" font-size="12" font-weight="700">PUBLIC TO ON-CHAIN OBSERVERS</text>
-  <text x="110" y="648" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="11">• Total allowlist count and registered commitments (hashed)</text>
-  <text x="110" y="670" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="11">• Unique nullifier upon verification (prevents replay)</text>
-  <text x="110" y="692" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="11">• Validity of the ZK proof itself (binary TRUE/FALSE)</text>
+  <!-- Action 1: ZK Move -->
+  <rect x="635" y="140" width="500" height="70" rx="8" fill="#121226" stroke="#25254a" stroke-width="1"/>
+  <text x="655" y="162" fill="#ffffff" font-family="'Inter', sans-serif" font-size="13" font-weight="700">🚀 1. ZK Move (Chebyshev &le; 2)</text>
+  <text x="655" y="180" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11">Move unit_a_0 to (2, 3) — Proves Chebyshev legality without disclosing coordinates.</text>
+  <rect x="1000" y="152" width="120" height="28" rx="6" fill="url(#accentGrad)"/>
+  <text x="1060" y="170" fill="#ffffff" font-family="'Inter', sans-serif" font-size="11" font-weight="700" text-anchor="middle">Prove Move</text>
 
-  <rect x="620" y="602" width="520" height="108" rx="8" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-width="0.7"/>
-  <text x="640" y="625" fill="#f87171" font-family="'Inter', sans-serif" font-size="12" font-weight="700">COMPLETELY PRIVATE &amp; UNKNOWN TO OBSERVERS</text>
-  <text x="640" y="648" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="11">• Member secret key (never leaves local browser witness)</text>
-  <text x="640" y="670" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="11">• Which specific commitment belongs to the prover</text>
-  <text x="640" y="692" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="11">• Linkability between multiple proofs by the same prover</text>
+  <!-- Action 2: Scout -->
+  <rect x="635" y="220" width="500" height="65" rx="8" fill="#121226" stroke="#25254a" stroke-width="1"/>
+  <text x="655" y="242" fill="#ffffff" font-family="'Inter', sans-serif" font-size="13" font-weight="700">📡 2. Scout Cell (Disclose Boolean Only)</text>
+  <text x="655" y="260" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11">Query cell (7, 7) — Opponent must disclose only boolean (occupied/not).</text>
+  <rect x="1000" y="232" width="120" height="28" rx="6" fill="#3b82f6"/>
+  <text x="1060" y="250" fill="#ffffff" font-family="'Inter', sans-serif" font-size="11" font-weight="700" text-anchor="middle">Scan Radar</text>
+
+  <!-- Action 3: Combat Claim -->
+  <rect x="635" y="295" width="500" height="65" rx="8" fill="#121226" stroke="#25254a" stroke-width="1"/>
+  <text x="655" y="317" fill="#ffffff" font-family="'Inter', sans-serif" font-size="13" font-weight="700">⚔️ 3. Claim Combat (Range &le; 1)</text>
+  <text x="655" y="335" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11">Target unit_b_0 at (7, 7) — Proximity trigger enforces mutual destruction.</text>
+  <rect x="1000" y="307" width="120" height="28" rx="6" fill="#ef4444"/>
+  <text x="1060" y="325" fill="#ffffff" font-family="'Inter', sans-serif" font-size="11" font-weight="700" text-anchor="middle">Engage Combat</text>
+
+  <!-- Right Side: Stats Row -->
+  <rect x="610" y="445" width="550" height="80" rx="10" fill="url(#cardGrad)" stroke="#272750"/>
+  <text x="670" y="475" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11">Player A (You)</text>
+  <text x="670" y="505" fill="#10b981" font-family="'Inter', sans-serif" font-size="18" font-weight="800">4 / 4 Alive</text>
+
+  <text x="800" y="475" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11">Player B (Opponent)</text>
+  <text x="800" y="505" fill="#06b6d4" font-family="'Inter', sans-serif" font-size="18" font-weight="800">3 / 4 Alive</text>
+
+  <text x="960" y="475" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11">Action Counter</text>
+  <text x="960" y="505" fill="#a78bfa" font-family="'Inter', sans-serif" font-size="18" font-weight="800">#15</text>
+
+  <text x="1070" y="475" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11">Phase</text>
+  <text x="1070" y="505" fill="#f472b6" font-family="'Inter', sans-serif" font-size="18" font-weight="800">ACTIVE</text>
+
+  <!-- Bottom: Privacy Model Matrix -->
+  <rect x="40" y="625" width="1120" height="150" rx="12" fill="#111124" stroke="#25254a"/>
+  <text x="65" y="655" fill="#ffffff" font-family="'Inter', sans-serif" font-size="14" font-weight="700">🛡️ Midnight Privacy Model: ShroudWar vs Dark Forest</text>
+
+  <rect x="65" y="670" width="530" height="90" rx="6" fill="#10b981" fill-opacity="0.08" stroke="#10b981" stroke-width="0.7"/>
+  <text x="80" y="690" fill="#10b981" font-family="'Inter', sans-serif" font-size="11" font-weight="700">PUBLIC LEDGER STATE (ON-CHAIN)</text>
+  <text x="80" y="710" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="10">• unitCommitments[unitId] (Poseidon/SHA-256 hash) • unitAlive (Boolean)</text>
+  <text x="80" y="728" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="10">• Scout challenge target &amp; disclosed boolean only (occupied: Boolean)</text>
+  <text x="80" y="746" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="10">• Global actionCount sequence clock &amp; mutual destruction combat events</text>
+
+  <rect x="615" y="670" width="530" height="90" rx="6" fill="#a78bfa" fill-opacity="0.08" stroke="#a78bfa" stroke-width="0.7"/>
+  <text x="630" y="690" fill="#a78bfa" font-family="'Inter', sans-serif" font-size="11" font-weight="700">SHIELDED IN CLIENT WITNESS (NEVER LEAVES DEVICE)</text>
+  <text x="630" y="710" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="10">• Exact unit coordinates Position &#123; x, y &#125; are stored in local IndexedDB</text>
+  <text x="630" y="728" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="10">• Fresh 32-byte salt rotated on every single move (untraceable)</text>
+  <text x="630" y="746" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="10">• ZK-SNARK movement proof proves Chebyshev &le; 2 without showing coordinates</text>
 </svg>
