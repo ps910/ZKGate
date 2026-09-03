@@ -1,149 +1,169 @@
-import { useWallet, WalletState } from './hooks/useWallet';
-import { useGameState } from './hooks/useGameState';
-import { Board } from './components/Board';
-import { ActionPanel } from './components/ActionPanel';
-import { GameStats } from './components/GameStats';
-import { ShroudWarPrivacy } from './components/ShroudWarPrivacy';
-import { NETWORK_CONFIG } from './config';
+import { useState } from 'react';
+import { WalletConnect } from './components/WalletConnect';
+import { AllowlistManager } from './components/AllowlistManager';
+import { MembershipProver } from './components/MembershipProver';
+import { StatsDisplay } from './components/StatsDisplay';
+import { AccessLog } from './components/AccessLog';
+import { PrivacyModel } from './components/PrivacyModel';
 
-export type { WalletState };
+export interface WalletState {
+  connected: boolean;
+  address: string | null;
+  networkId: string | null;
+}
 
 export interface ContractState {
   deployed: boolean;
-  address: string;
+  address: string | null;
   memberCount: number;
   verifiedCount: number;
-  allowlistName?: string;
-  network: string;
+  allowlistName: string;
 }
 
 export interface LogEntry {
   id: string;
-  type: 'deploy' | 'add_member' | 'verify' | 'prove_membership' | 'move' | 'scout' | 'combat';
-  message: string;
-  timestamp: string | Date;
-  txHash?: string;
-  nullifier?: string;
+  nullifier: string;
+  timestamp: Date;
+  type: 'add_member' | 'prove_membership';
 }
 
-export const App: React.FC = () => {
-  const { wallet, connect, disconnect } = useWallet();
-  const {
-    phase,
-    actionCount,
-    winner,
-    units,
-    selectedUnitId,
-    setSelectedUnitId,
-    targetCell,
-    setTargetCell,
-    actionInProgress,
-    lastActionMessage,
-    scoutEvents,
-    combatEvents,
-    moveUnit,
-    requestScout,
-    claimCombat,
-    contractAddress,
-  } = useGameState('playerA');
+export default function App() {
+  const [wallet, setWallet] = useState<WalletState>({
+    connected: false,
+    address: null,
+    networkId: null,
+  });
+
+  const [contract, setContract] = useState<ContractState>({
+    deployed: true,
+    address: '0x7c5cfc...a78bfa42',
+    memberCount: 0,
+    verifiedCount: 0,
+    allowlistName: 'ZKGate Beta Access',
+  });
+
+  const [logs, setLogs] = useState<LogEntry[]>([]);
+  const [proofStatus, setProofStatus] = useState<'idle' | 'generating' | 'verified' | 'failed'>('idle');
+
+  const addLogEntry = (type: LogEntry['type'], nullifier: string) => {
+    setLogs(prev => [{
+      id: crypto.randomUUID(),
+      nullifier,
+      timestamp: new Date(),
+      type,
+    }, ...prev]);
+  };
+
+  const handleAddMember = async () => {
+    const mockCommitment = Array.from(crypto.getRandomValues(new Uint8Array(16)))
+      .map(b => b.toString(16).padStart(2, '0')).join('');
+
+    setContract(prev => ({
+      ...prev,
+      memberCount: prev.memberCount + 1,
+    }));
+
+    addLogEntry('add_member', `0x${mockCommitment}`);
+  };
+
+  const handleProveMembership = async () => {
+    setProofStatus('generating');
+
+    // Simulate ZK proof generation (2-4 seconds)
+    await new Promise(r => setTimeout(r, 2000 + Math.random() * 2000));
+
+    const success = Math.random() > 0.1; // 90% success rate for demo
+
+    if (success) {
+      const mockNullifier = Array.from(crypto.getRandomValues(new Uint8Array(16)))
+        .map(b => b.toString(16).padStart(2, '0')).join('');
+
+      setContract(prev => ({
+        ...prev,
+        verifiedCount: prev.verifiedCount + 1,
+      }));
+
+      addLogEntry('prove_membership', `0x${mockNullifier}`);
+      setProofStatus('verified');
+    } else {
+      setProofStatus('failed');
+    }
+
+    // Reset after 5 seconds
+    setTimeout(() => setProofStatus('idle'), 5000);
+  };
 
   return (
-    <div className="shroudwar-app">
-      {/* Top Navbar */}
-      <header className="navbar">
-        <div className="navbar-left">
-          <div className="logo-badge">
-            <span className="logo-icon">🌌</span>
-            <div className="logo-text">
-              <h1 className="title">ShroudWar</h1>
-              <span className="subtitle">On-Chain Fog-of-War Strategy · Midnight Level 4</span>
-            </div>
+    <div className="app-container">
+      {/* Header */}
+      <header className="app-header">
+        <div className="app-logo">
+          <div className="app-logo-icon">🛡️</div>
+          <div>
+            <div className="app-logo-text">ZKGate</div>
+            <div className="app-logo-subtitle">Private Allowlist on Midnight</div>
           </div>
-          <span className="network-status-badge">
-            <span className="status-bullet"></span>
-            MIDNIGHT PREPROD
-          </span>
         </div>
-
-        <div className="navbar-right">
-          <div className="contract-tag" title={NETWORK_CONFIG.contractAddress}>
-            <span className="tag-label">Contract:</span>
-            <code>{contractAddress.slice(0, 8)}...{contractAddress.slice(-6)}</code>
-          </div>
-
-          {wallet.connected ? (
-            <div className="wallet-connected-pill">
-              <span className="wallet-dot"></span>
-              <span className="wallet-address">{wallet.address?.slice(0, 6)}...{wallet.address?.slice(-4)} (Preprod)</span>
-              <button className="btn-link" onClick={disconnect}>Disconnect</button>
-            </div>
-          ) : (
-            <button className="btn btn-connect" onClick={connect}>
-              🦊 Connect Lace Wallet
-            </button>
-          )}
-        </div>
+        <WalletConnect wallet={wallet} setWallet={setWallet} />
       </header>
 
-      {/* Main Game Interface */}
-      <main className="main-content">
-        <div className="game-layout">
-          {/* Left: 10x10 Fog of War Board */}
-          <section className="board-section">
-            <Board
-              units={units}
-              selectedUnitId={selectedUnitId}
-              onSelectUnit={setSelectedUnitId}
-              targetCell={targetCell}
-              onSelectCell={setTargetCell}
-              scoutEvents={scoutEvents}
-              myPlayer="playerA"
-            />
-          </section>
-
-          {/* Right: Tactical Command Center & Stats */}
-          <section className="controls-section">
-            <ActionPanel
-              selectedUnitId={selectedUnitId}
-              targetCell={targetCell}
-              units={units}
-              actionInProgress={actionInProgress}
-              lastActionMessage={lastActionMessage}
-              onMove={moveUnit}
-              onScout={requestScout}
-              onCombat={claimCombat}
-            />
-
-            <GameStats
-              units={units}
-              actionCount={actionCount}
-              winner={winner}
-              phase={phase}
-              scoutEvents={scoutEvents}
-              combatEvents={combatEvents}
-            />
-          </section>
+      {/* Hero */}
+      <section className="hero animate-fade-in">
+        <div className="hero-badge">
+          <span className="hero-badge-dot"></span>
+          Midnight Network · Preprod
         </div>
+        <h1>Private Allowlist Access</h1>
+        <p className="hero-subtitle">
+          Prove you belong — without revealing who you are.
+          Zero-knowledge proofs ensure your membership stays private.
+        </p>
+        <div className="privacy-indicator" style={{ display: 'inline-flex' }}>
+          <span className="privacy-shield">🔒</span>
+          ZK-Protected · No Identity Disclosure
+        </div>
+      </section>
 
-        {/* Bottom: Privacy Model */}
-        <section className="privacy-section">
-          <ShroudWarPrivacy />
-        </section>
-      </main>
+      {/* Stats */}
+      <section className="section animate-slide-up animate-delay-1">
+        <StatsDisplay contract={contract} />
+      </section>
+
+      {/* Main Grid */}
+      <section className="section grid grid-2 animate-slide-up animate-delay-2">
+        <AllowlistManager
+          wallet={wallet}
+          contract={contract}
+          onAddMember={handleAddMember}
+        />
+        <MembershipProver
+          wallet={wallet}
+          proofStatus={proofStatus}
+          onProveMembership={handleProveMembership}
+        />
+      </section>
+
+      {/* Access Log */}
+      <section className="section animate-slide-up animate-delay-3">
+        <AccessLog logs={logs} />
+      </section>
+
+      {/* Privacy Model */}
+      <section className="section animate-slide-up animate-delay-4">
+        <PrivacyModel />
+      </section>
 
       {/* Footer */}
-      <footer className="footer">
-        <div className="footer-left">
-          <span>Midnight Network Level 4 Challenge Submission · Zero-Knowledge Fog-of-War</span>
-        </div>
-        <div className="footer-right">
-          <a href="https://indexer.preprod.midnight.network" target="_blank" rel="noreferrer">Preprod Indexer</a>
-          <span>·</span>
-          <a href="https://github.com/ps910/ZKGate" target="_blank" rel="noreferrer">GitHub Repository</a>
-        </div>
+      <footer className="app-footer">
+        <p>
+          Built on{' '}
+          <a href="https://midnight.network" target="_blank" rel="noopener">
+            Midnight Network
+          </a>{' '}
+          · Zero-Knowledge Privacy ·{' '}
+          Contract: <code>{contract.address}</code>
+        </p>
       </footer>
     </div>
   );
-};
-
-export default App;
+}

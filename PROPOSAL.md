@@ -1,79 +1,89 @@
-# Product Proposal: ShroudWar — On-Chain Fog-of-War Strategy Game
+# Product Proposal: ZKGate — Private Allowlist Access
 
-**Challenge Track**: Midnight Level 4 — Advanced Privacy-Preserving DApps  
-**Midnight Network Target**: Preprod (`https://indexer.preprod.midnight.network`)  
-**Status**: Implemented, Verified, and Deployed  
+**Selected Track**: Privacy-Preserving Access Control & Identity  
+**Midnight Network Target**: Preprod / Preview  
+**Status**: Ready for Submission & Approval  
 
 ---
 
 ## 1. Executive Summary
 
-Dark Forest proved that hidden-information games are the holy grail of decentralized gaming. However, Dark Forest required years of bespoke, hand-crafted SNARK circuits and complex off-chain coordinators because Ethereum possesses no native concept of private ledger state.
+Traditional blockchain allowlists and token-gating solutions force users to connect public wallet addresses that link their on-chain identity, financial net worth, and historical transactions directly to the gating service.
 
-**ShroudWar** rebuilds this iconic core loop on the **Midnight Network** using Midnight’s native **Compact** language, client-side private `witness` functions, and compiler-enforced `disclose()` semantics. ShroudWar is a playable 1v1 on-chain strategy game featuring a 10×10 grid, shielded unit coordinates, Chebyshev movement proofs, challenge-response radar scouting, and proximity combat resolution.
+**ZKGate** solves this fundamental privacy flaw using Midnight's hybrid ledger and Zero-Knowledge (ZK) proofs. Members prove that their private credentials correspond to an authorized entry in an on-chain commitment set **without revealing which address or secret is theirs**, preventing wallet tracking, profiling, and doxxing.
 
 ---
 
 ## 2. Problem Statement
 
-1. **Information Leakage in On-Chain Gaming**: On public blockchains (Ethereum, Solana), game state is visible to all observers, rendering real-time strategy (RTS), fog-of-war, and stealth mechanics impossible without centralized game servers.
-2. **Engineering Overhead of Dark Forest**: Custom zero-knowledge circuits require deep cryptographic specialization, making hidden-state games cost-prohibitive to build and maintain.
-3. **Absence of Compiler Safety**: When privacy boundaries are not checked by the compiler, accidental leaks of secret coordinates are common vulnerabilities in ZK apps.
+1. **Public Doxxing in Token-Gating**: In Web3 today (Discord roles, NFT mints, DAO voting, exclusive dApps), proving membership requires signing a message with a public wallet address. Observers can trace the user's holdings, previous transactions, and entire balance.
+2. **Replay & Sybil Vulnerabilities**: Naive off-chain signature schemes risk replay attacks across multiple services without on-chain finality.
+3. **Regulatory & Compliance Friction**: Organizations cannot securely offer whitelisted access to sensitive resources (investor portals, employee access, beta groups) on public blockchains without breaching privacy regulations like GDPR.
 
 ---
 
-## 3. The ShroudWar Solution on Midnight
+## 3. The Solution: ZKGate on Midnight
 
-ShroudWar demonstrates that Midnight makes "private state, selectively disclosed" a native first-class feature:
-- **Private Coordinates in Local Witness**: A unit's `Position { x, y }` and randomness `salt` never leave the player's browser device.
-- **Unlinkable State Commitments**: The public ledger only stores `unitCommitments: Map<Bytes<32>, Bytes<32>>` derived via `persistentCommit<Position>(pos, salt)`. Every movement rotates the salt, making the new position unlinkable to previous moves.
-- **Chebyshev Movement Circuit**: The `move` circuit validates that $\max(|x_2 - x_1|, |y_2 - y_1|) \le 2$ inside the ZK proof without broadcasting where the unit started or moved.
-- **Challenge-Response Radar Scouting**: Player A queries cell $(x, y)$. Player B must respond within $3$ actions, disclosing **only** a boolean (`occupied: Boolean`) without exposing the location of any of their other units.
-- **Proximity Combat**: Direct engagement verifies whether an opposing unit is within combat radius $1$ (adjacent or diagonal). On confirmed contact, mutual destruction occurs and positions are selectively disclosed.
+ZKGate leverages Midnight's domain-specific smart contract language (**Compact**):
+- **Commitments on Public Ledger**: When an admin admits an authorized user, a cryptographic commitment $C = \mathcal{H}(\text{secret} \parallel \text{salt})$ is appended to the public ledger.
+- **Private Witness Circuit**: When the user requests access, their browser runs a private circuit with the secret and salt as confidential witness inputs.
+- **ZK Proof Submission**: The user submits a zero-knowledge proof along with a single-use session nullifier $N = \mathcal{H}(\text{secret} \parallel \text{sessionNonce})$.
+- **Verification on Midnight**: The Midnight consensus engine verifies the proof against the public commitment root and confirms the nullifier is unused. Access is granted without learning the user's identity.
 
 ---
 
-## 4. Privacy Model Comparison
+## 4. Privacy Model & Trust Assumptions
 
-| Feature | Dark Forest (Ethereum) | ShroudWar (Midnight) |
+| Dimension | Public to Observers & Ledger | Kept Private in Local Witness |
 | :--- | :--- | :--- |
-| **Position Privacy** | Years of custom Circom circuits | Native Compact `witness getPosition()` |
-| **Commitment Cryptography** | Bespoke MiMC / Poseidon hashing | Built-in `persistentCommit<T>` standard library |
-| **Disclosure Boundary** | Manual audit; risk of developer leak | Mandatory, compiler-checked `disclose()` |
-| **Toolchain & Bindings** | Manual snarkjs + contract glue | `compact compile` outputs WASM + TS bindings automatically |
+| **Identity** | None (no address or name revealed) | User secret key & salt |
+| **Membership Proof** | Cryptographic ZK proof validity | Which specific commitment belongs to prover |
+| **Allowlist State** | Total count & public commitment hashes | Plaintext identity or contact of members |
+| **Replay Prevention** | Single-use nullifiers per proof event | Unlinkable to prover's identity or other proofs |
 
 ---
 
 ## 5. Technical Architecture
 
-- **Smart Contract (`contract/src/shroudwar.compact`)**:
-  - `ledger`: Public phase, parameters, unit commitments, survival map, scout challenges, and combat claims.
-  - `witness`: Local positions and rotated salts.
-  - `circuits`: `initGame`, `registerUnit`, `move`, `requestScout`, `respondScout`, `claimCombat`, `respondCombat`, `forfeitScout`, `forfeitCombat`, `checkWin`.
-- **Client-Side Witness Store (`witnesses/privateState.ts`)**:
-  - Manages local private state, Chebyshev distance algorithms, and SHA-256 / Poseidon commitments.
+- **Smart Contract (`contract/allowlist.compact`)**:
+  - `ledger`: State maps for commitments, registered nullifiers, and member counter.
+  - `witness`: Local private secret and salt.
+  - `circuits`: `addMember` (admin) and `proveMembership` (user).
+- **TypeScript Runtime & Client SDK (`@midnight-ntwrk/compact-runtime`, `@midnight-ntwrk/dapp-connector-api`)**:
+  - Browser-side proof generation using Midnight Proof Server.
+  - Lace Wallet connector integration for Midnight Preprod.
 - **Frontend DApp (`React 18`, `TypeScript`, `Vite`)**:
-  - Interactive 10×10 Fog-of-War tactical grid.
-  - Tactical Command Center (Move, Scout, Combat claims).
-  - Real-time Midnight Preprod network integration with Lace wallet connector.
+  - Dark luxury theme with responsive mobile/desktop UI.
+  - Real-time proof generation status and on-chain verification display.
 
 ---
 
-## 6. Game Parameters
+## 6. Target Audience & Commercial Use Cases
 
-- **Grid Size**: $10 \times 10$ coordinates ($0$ to $9$).
-- **Units per Player**: $4$ symmetric units per side.
-- **Move Speed**: $2$ (Chebyshev $\max(\Delta x, \Delta y) \le 2$).
-- **Combat Range**: $1$ (Adjacent or diagonal contact).
-- **Scout Response Window**: $3$ contract actions.
-- **Win Condition**: Elimination of all $4$ opposing units.
+1. **Private DAO Governance**: Allowlisted voters prove eligibility without exposing how many governance tokens they hold or which vote belongs to them.
+2. **Confidential NFT & Token Whitelists**: Early supporters participate in exclusive drops without having their whale wallets targeted by phishing attacks.
+3. **Enterprise Whistleblowing & Employee Verification**: Corporate portals verify that a claimant is an active employee without knowing their individual employee ID.
+4. **Accredited Investor Portals**: Compliance with KYC/AML allowlists where individual investor identities remain strictly confidential.
 
 ---
 
-## 7. Submission Details
+## 7. Development Roadmap
 
-- **Project Name**: ShroudWar
-- **Repository**: [https://github.com/ps910/ZKGate](https://github.com/ps910/ZKGate)
-- **Live Demo**: [https://ps910.github.io/ZKGate/](https://ps910.github.io/ZKGate/)
+- **Phase 1 (Completed)**:
+  - Toolchain setup (Compact, Docker, Midnight Proof Server, Node 22).
+  - Compact contract written, verified, and test suite written (9 passing tests).
+  - Deployment configuration and deployment to Midnight Preprod.
+  - React DApp with Lace wallet connector and fallback simulation.
+- **Phase 2 (Next Cycle)**:
+  - Merkle tree commitment accumulation for scaling to $100,000+$ members.
+  - Multi-tenant allowlists with role-based access control.
+  - Integration with Midnight Testnet/Mainnet releases.
+
+---
+
+## 8. Team & Submission Details
+
+- **Project Name**: ZKGate (Private Allowlist Access)
+- **Repository**: [ps910/NEW-MOON-PROJECT-](https://github.com/ps910/NEW-MOON-PROJECT-)
+- **Live Demo**: [https://ps910.github.io/NEW-MOON-PROJECT-/](https://ps910.github.io/NEW-MOON-PROJECT-/)
 - **Target Network**: Midnight Preprod (`https://indexer.preprod.midnight.network`)
-- **Contract Address (Preprod)**: `0x8b3f4c2e1a9d7e6c5b4a3f2e1d0c9b8a7f6e5d4c`

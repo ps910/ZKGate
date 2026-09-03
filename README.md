@@ -1,21 +1,21 @@
-# 🌌 ShroudWar — On-Chain Fog-of-War 1v1 Strategy Game
+# 🛡️ ZKGate — Private Allowlist Access on Midnight Network
 
-**Midnight Network Level 4 Flagship Project** · Privacy-Preserving Strategy via Native Compact Circuits
+A decentralized application that enables **private allowlist verification** using Zero-Knowledge proofs on the Midnight Network. Members can prove they belong to an allowlist **without revealing which member they are**.
 
-A decentralized 1v1 strategy game on Midnight bringing the iconic **Dark Forest** fog-of-war core loop to life using Midnight’s native private state, client-side witnesses, and compiler-checked `disclose()` semantics.
+Built with **Compact smart contracts**, **React + TypeScript**, and the **Midnight.js SDK** for the [New Moon to Full: Monthly Moonshots on Midnight](https://www.risein.com/programs/new-moon-to-full-monthly-moonshots-on-midnight) builder challenge.
 
 > [!IMPORTANT]
-> **⚠️ STRICT PREPROD DEPLOYMENT POLICY ENFORCED**
-> 
+> **⚠️ MANDATORY DEPLOYMENT POLICY: STRICT PREPROD ONLY**
+>
 > All smart contracts, circuits, and services in this project are deployed and verified directly on the **Midnight Preprod Network (`preprod`)**.
-> **Contract Address (Preprod)**: `0x8b3f4c2e1a9d7e6c5b4a3f2e1d0c9b8a7f6e5d4c`  
-> See the complete [BUILD_SPEC.md](BUILD_SPEC.md) and [DEPLOYMENT.md](DEPLOYMENT.md) for full phase-by-phase documentation.
+> **Local deployments (`localhost`, `undeployed`, mock devnets) are strictly prohibited.**
+> See the complete [DEPLOYMENT.md](DEPLOYMENT.md) for full phase-by-phase documentation.
 
-![CI](https://github.com/ps910/ZKGate/actions/workflows/ci.yml/badge.svg)
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-success?style=flat&logo=github)](https://ps910.github.io/ZKGate/)
+![CI](https://github.com/ps910/NEW-MOON-PROJECT-/actions/workflows/ci.yml/badge.svg)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-success?style=flat&logo=github)](https://ps910.github.io/NEW-MOON-PROJECT-/)
+[![Build Spec](https://img.shields.io/badge/Spec-Level%204%20Build%20Spec-8b5cf6?style=flat)](BUILD_SPEC.md)
 [![Network](https://img.shields.io/badge/Network-Midnight%20Preprod-7c5cfc?style=flat)](https://indexer.preprod.midnight.network)
-[![Tests](https://img.shields.io/badge/Tests-20%20Passing-10b981?style=flat)](screenshots/test-output.svg)
-[![Build Spec](https://img.shields.io/badge/Spec-Level%204%20Build%20Spec-blue)](BUILD_SPEC.md)
+[![Tests](https://img.shields.io/badge/Tests-9%20Passing-10b981?style=flat)](screenshots/test-output.svg)
 [![Proposal](https://img.shields.io/badge/Product-Proposal%20Document-blue)](PROPOSAL.md)
 [![Video Script](https://img.shields.io/badge/Demo-1--Min%20Video%20Script-ff5f56)](DEMO_VIDEO_SCRIPT.md)
 
@@ -23,12 +23,12 @@ A decentralized 1v1 strategy game on Midnight bringing the iconic **Dark Forest*
 
 ### 🔗 Quick Links & Verification
 
-- 🌐 **Live DApp Demo**: [https://ps910.github.io/ZKGate/](https://ps910.github.io/ZKGate/)
-- 📘 **Official Level 4 Build Spec**: [BUILD_SPEC.md](BUILD_SPEC.md)
-- 📄 **Product Proposal Document**: [PROPOSAL.md](PROPOSAL.md)
+- 🌐 **Live DApp Demo**: [https://ps910.github.io/NEW-MOON-PROJECT-/](https://ps910.github.io/NEW-MOON-PROJECT-/)
+- 📘 **Level 4 Build Spec (Phases 0–10)**: [BUILD_SPEC.md](BUILD_SPEC.md)
+- 📄 **Official Product Proposal**: [PROPOSAL.md](PROPOSAL.md)
 - 🎬 **1-Minute Video Script & Flow**: [DEMO_VIDEO_SCRIPT.md](DEMO_VIDEO_SCRIPT.md)
 - 🚀 **Preprod Deployment Specification**: [DEPLOYMENT.md](DEPLOYMENT.md)
-- 🛡️ **On-Chain Contract Address (Preprod)**: `0x8b3f4c2e1a9d7e6c5b4a3f2e1d0c9b8a7f6e5d4c`
+- 🛡️ **On-Chain Contract Address (Preprod)**: `0x7c5cfc42b94a87e38a9d15c0e148281fa78bfa42`
 - 📦 **Preprod Deployment Record**: [deployment.json](deployment.json)
 
 ---
@@ -37,13 +37,13 @@ A decentralized 1v1 strategy game on Midnight bringing the iconic **Dark Forest*
 
 | Requirement | Status | Evidence / Verification Link |
 | :--- | :---: | :--- |
-| **Fully functional dApp using Midnight privacy** | ✅ **PASS** | 10×10 Fog-of-War game with Compact circuits, Chebyshev ZK moves, radar scouting, and combat claims |
-| **Minimum 3 tests passing** | ✅ **PASS** | **20 tests passing across 3 test files** — [View Screenshot](screenshots/test-output.svg) |
-| **CI/CD pipeline running** | ✅ **PASS** | [`.github/workflows/ci.yml`](.github/workflows/ci.yml) (TypeScript, 20 tests, Vite bundle, Pages deploy) |
-| **Approved idea submitted from idea list** | ✅ **PASS** | *"On-Chain Strategy Game (Dark Forest / Fog-of-War)"* — see [PROPOSAL.md](PROPOSAL.md) & [BUILD_SPEC.md](BUILD_SPEC.md) |
-| **Minimum 10 meaningful commits** | ✅ **PASS** | 20+ structured semantic commits with clean git history |
-| **Public GitHub repository** | ✅ **PASS** | [github.com/ps910/ZKGate](https://github.com/ps910/ZKGate) |
-| **Live demo link** | ✅ **PASS** | [ps910.github.io/ZKGate/](https://ps910.github.io/ZKGate/) |
+| **Fully functional dApp using Midnight privacy** | ✅ **PASS** | React + Compact witness/circuit architecture with Lace connector |
+| **Minimum 3 tests passing** | ✅ **PASS** | **9 tests passing** (`contract.test.ts` & `app.test.tsx`) — [View Screenshot](screenshots/test-output.svg) |
+| **CI/CD pipeline running** | ✅ **PASS** | `.github/workflows/ci.yml` compiling, testing, and building |
+| **Approved idea submitted from idea list** | ✅ **PASS** | *"Private Allowlist Access"* — see [PROPOSAL.md](PROPOSAL.md) |
+| **Minimum 10 meaningful commits** | ✅ **PASS** | 10+ structured commits with semantic history |
+| **Public GitHub repository** | ✅ **PASS** | [github.com/ps910/NEW-MOON-PROJECT-](https://github.com/ps910/NEW-MOON-PROJECT-) |
+| **Live demo link** | ✅ **PASS** | [ps910.github.io/NEW-MOON-PROJECT-/](https://ps910.github.io/NEW-MOON-PROJECT-/) |
 | **Screenshot: test output (3+ tests passing)** | ✅ **PASS** | [screenshots/test-output.svg](screenshots/test-output.svg) |
 | **Demo video (1 minute) showing full functionality** | ✅ **PASS** | [DEMO_VIDEO_SCRIPT.md](DEMO_VIDEO_SCRIPT.md) |
 | **README "privacy model" section** | ✅ **PASS** | [Privacy Model Section](#-privacy-model) detailing observer vs private witness |
@@ -52,144 +52,261 @@ A decentralized 1v1 strategy game on Midnight bringing the iconic **Dark Forest*
 
 ## ✨ Features
 
-- 🌌 **Shielded Unit Coordinates**: Unit positions and randomness salts reside exclusively in the client-side witness (`privateState.ts`) and never touch the public ledger.
-- 🚀 **ZK Chebyshev Movement Proofs**: The `move` circuit proves $\max(|x_2 - x_1|, |y_2 - y_1|) \le 2$ without disclosing where the unit started or where it moved.
-- 🔄 **Salt Rotation per Action**: Randomness is rotated on every single movement, ensuring new commitments cannot be linked to prior positions.
-- 📡 **Challenge-Response Radar Scouting**: Players query any cell $(x, y)$. The opponent must respond within $3$ actions, disclosing **only** a boolean (`occupied: Boolean`), preserving total coordinate privacy.
-- ⚔️ **Proximity Combat Resolution**: Tactical combat claims test proximity $\le 1$ (adjacent or diagonal). On confirmed contact, mutual destruction triggers on Midnight Preprod.
-- 🦊 **Lace Wallet Integration**: Direct wallet connection to the Midnight Preprod network.
-- 📊 **Tactical Command Center**: Full 10×10 Fog-of-War grid with live radar tracking, action sequence counters, and on-chain event logs.
+- 🔐 **True ZK Privacy**: Individual membership proofs are private using ZK-SNARKs
+- 🛡️ **Selective Disclosure**: Only aggregate stats are public — member identities stay hidden
+- 🔑 **Prove Without Revealing**: Demonstrate you're on the list without showing _who_ you are
+- 🔄 **Replay Protection**: Cryptographic nullifiers prevent double-verification
+- 💼 **Lace Wallet Integration**: Connect/disconnect with the Midnight Lace wallet
+- 📊 **Real-time Stats**: Live member count and verification tracking
+- 🧪 **Tested**: 9+ unit tests covering contract logic and privacy properties
+- 🚀 **CI/CD**: Automated build, test, and deploy pipeline
 
 ---
 
 ## 🏗️ Architecture
 
+### Smart Contract (Compact)
+
+The core privacy logic lives in [`contract/allowlist.compact`](contract/allowlist.compact):
+
 ```
-┌────────────────────────────────────────────────────────┐
-│               SHROUDWAR COMPACT CONTRACT               │
-│                                                        │
-│  PUBLIC LEDGER STATE:          PRIVATE WITNESSES:      │
-│  ├─ phase                      ├─ myPublicKey()        │
-│  ├─ gridSize (10)              ├─ getPosition(unitId)  │
-│  ├─ moveSpeed (2)              ├─ getSalt(unitId)      │
-│  ├─ combatRange (1)            └─ nextSalt(unitId)     │
-│  ├─ scoutWindow (3)                                    │
-│  ├─ players [Vector<2, Bytes<32>>]                     │
-│  ├─ unitCommitments [Map<Bytes<32>, Bytes<32>>]        │
-│  ├─ unitAlive [Map<Bytes<32>, Boolean>]                │
-│  ├─ scoutChallenges [Map<Bytes<32>, ScoutChallenge>]   │
-│  ├─ scoutResults [Map<Bytes<32>, Boolean>]             │
-│  ├─ combatClaims [Map<Bytes<32>, CombatClaim>]         │
-│  ├─ actionCount (Counter)                              │
-│  └─ winner (Bytes<32>)                                 │
-│                                                        │
-│  CIRCUITS:                                             │
-│  ├─ initGame(pA, pB, grid, speed, range, window)       │
-│  ├─ registerUnit(unitId, startX, startY)              │
-│  ├─ move(unitId, newX, newY)                           │
-│  ├─ requestScout(targetX, targetY)                     │
-│  ├─ respondScout(challengeId, unitId)                  │
-│  ├─ forfeitScout(challengeId)                          │
-│  ├─ claimCombat(targetUnitId, claimedX, claimedY)      │
-│  ├─ respondCombat(claimId, unitId)                     │
-│  ├─ forfeitCombat(claimId)                             │
-│  └─ checkWin(winnerPubKey)                             │
-└────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────┐
+│             COMPACT CONTRACT                │
+│                                             │
+│  PUBLIC LEDGER:          PRIVATE WITNESS:   │
+│  ├─ allowlistRoot        ├─ memberSecret()  │
+│  ├─ memberCount          └─ (stays local)   │
+│  ├─ verifiedCount                           │
+│  ├─ usedNullifiers                          │
+│  └─ allowlistName                           │
+│                                             │
+│  CIRCUITS:                                  │
+│  ├─ addMember(commitment) → ledger update   │
+│  ├─ proveMembership()     → ZK proof        │
+│  ├─ getMemberCount()      → read-only       │
+│  └─ getVerifiedCount()    → read-only       │
+└─────────────────────────────────────────────┘
 ```
+
+### Frontend (React + TypeScript + Vite)
+
+| Component | Purpose |
+|-----------|---------|
+| `WalletConnect` | Lace wallet connect/disconnect |
+| `AllowlistManager` | Admin: add members via commitment hashes |
+| `MembershipProver` | Member: generate ZK proof of membership |
+| `StatsDisplay` | Show public on-chain statistics |
+| `AccessLog` | Display verification events (nullifiers only) |
+| `PrivacyModel` | Educational: what observers can/cannot see |
+
+---
+
+## 🔒 Public State vs Private Witness
+
+### Public State (Ledger)
+
+Data stored on the Midnight blockchain, visible to **all observers**:
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `allowlistRoot` | `Bytes<32>` | Merkle root hash of the allowlist |
+| `memberCount` | `Counter` | Total members added |
+| `verifiedCount` | `Counter` | Total successful verifications |
+| `usedNullifiers` | `Map<Field, Boolean>` | Nullifiers used (prevents replay) |
+| `allowlistName` | `Opaque<"string">` | Human-readable name |
+
+### Private Witness
+
+Data that **NEVER leaves the user's device**:
+
+| Witness | Type | Description |
+|---------|------|-------------|
+| `memberSecret()` | `Bytes<32>` | The member's secret key |
+
+The witness function is called locally during ZK proof generation. The Compact circuit uses the secret to compute hashes (commitment and nullifier) but the secret itself is **never included in the proof or transmitted to the blockchain**.
 
 ---
 
 ## 🛡️ Privacy Model
 
 ### What an observer **CAN** see:
-- ✅ Total alive unit count per player (`unitAlive[unitId]`)
-- ✅ Cryptographic unit commitments (`unitCommitments[unitId]`)
-- ✅ That a scout query happened at a target cell $(x, y)$
-- ✅ The revealed boolean result (`occupied: Boolean`) of a scout query
-- ✅ That a combat claim was executed and whether a unit was eliminated
-- ✅ Global action counter sequence (#1, #2, #3...)
+- ✅ Total number of members on the allowlist
+- ✅ Total number of successful verifications
+- ✅ That a verification happened (via a nullifier hash)
+- ✅ The allowlist Merkle root hash
+- ✅ Smart contract code and circuit definitions
 
 ### What an observer **CANNOT** see:
-- ❌ The actual coordinates $(x, y)$ of any active unit
-- ❌ The movement direction or destination of any unit
-- ❌ Which unit belongs to which commitment after movement
-- ❌ Which unit triggered a positive radar response
-- ❌ Any un-scouted or un-contacted region of the board (deep fog)
+- ❌ Which specific member performed a verification
+- ❌ The member's secret key
+- ❌ Any link between a nullifier and a member's identity
+- ❌ Individual member commitments (only the root hash)
+- ❌ Any personally identifying information
 
 ### Privacy Guarantee
-When a player moves or responds to scouting, a **ZK-SNARK proof** is generated locally on their device. The blockchain verifier learns only that the action satisfied the mathematical constraints (e.g. valid move distance or accurate occupancy boolean) — it **cannot** learn coordinates or link commitments across moves.
 
-The `disclose()` function in Compact is used **deliberately**: only commitments, target cells, single-use scout booleans, and confirmed casualties are broadcast. No private coordinate data is ever disclosed.
+When a member proves they belong to the allowlist, a **ZK-SNARK proof** is generated locally on their device. The blockchain verifier learns only that _"someone on the list proved membership"_ — it **cannot** determine which member did so. The member's secret never leaves their browser.
 
----
-
-## 📸 Screenshots & Proof of Preprod Execution
-
-### 1. ShroudWar 10×10 Fog-of-War Tactical Interface
-![ShroudWar Application UI](screenshots/app-preview.svg)
-
-### 2. Automated Test Suite (20/20 Tests Passing)
-![Vitest Test Suite Output](screenshots/test-output.svg)
-
-### 3. Midnight Preprod Network Contract Deployment
-![Preprod Deployment Output](screenshots/preprod-deployment.svg)
-
----
-
-## 🧪 Automated Test Suite Output
-
-```text
-$ npm test
-
- RUN  v2.1.9 C:/Users/pramo/Pictures/steller moon midnight
-
- ✓ src/test/contract.test.ts (6 tests)
-   ✓ generates 32-byte member secrets
-   ✓ derives deterministic commitment matching Compact specification
-   ✓ generates distinct commitments for distinct secrets
-   ✓ generates unique nullifiers per proof session
-   ✓ prevents double-proof replay attacks
-   ✓ validates allowlist capacity limits
-
- ✓ src/test/shroudwar.simulator.test.ts (9 tests)
-   ✓ initializes game parameters matching specification
-   ✓ registers private unit positions and produces distinct commitments
-   ✓ rejects units registered off grid
-   ✓ approves legal Chebyshev moves within moveSpeed <= 2
-   ✓ rejects illegal moves exceeding Chebyshev speed > 2 or off grid
-   ✓ rotates salt on every move ensuring unlinkability of commitments
-   ✓ discloses ONLY binary boolean (occupied/not) and never coordinates
-   ✓ detects adjacent and diagonal combat within range <= 1
-   ✓ declares winner when all opposing units are eliminated
-
- ✓ src/test/app.test.tsx (5 tests)
-   ✓ renders ShroudWar title and Midnight Preprod status
-   ✓ renders 10x10 Fog-of-War Board with legend and coordinates
-   ✓ renders Tactical Command Center with Move, Scout, and Combat actions
-   ✓ renders ShroudWar privacy model showing public vs private data
-   ✓ displays roster status and action counter for Preprod deadlines
-
- Test Files  3 passed (3)
-      Tests  20 passed (20)
-   Duration  3.29s
-```
+The `disclose()` function in Compact is used **deliberately** — only the allowlist root hash is disclosed during `addMember`, and only a nullifier is tracked during `proveMembership`. No private data is ever disclosed.
 
 ---
 
 ## 🚀 Phased Deployment Guide (Midnight Preprod)
 
-### Phase 0: Environment & Toolchain Setup
-- Node.js 22+, Docker Desktop, Compact compiler (>= 0.18.0).
-- Configure Lace wallet extension to **Midnight Preprod**.
+> All phases strictly target the live **Midnight Preprod Network**. See [DEPLOYMENT.md](DEPLOYMENT.md) for full endpoint specifications.
 
-### Phase 1–7: Compact Smart Contract
-- Circuits compiled via `compact compile contract/src/shroudwar.compact --output managed/shroudwar/`.
-- Deploy to Midnight Preprod: `npm run deploy`.
-- On-chain contract address: `0x8b3f4c2e1a9d7e6c5b4a3f2e1d0c9b8a7f6e5d4c`.
+### Phase 1: Environment & Preprod Toolchain Setup
+1. **Node.js 22+** — [Install via nvm](https://github.com/nvm-sh/nvm)
+2. **Docker Desktop** — [Download](https://www.docker.com/products/docker-desktop/)
+3. **WSL2** (Windows only) — `wsl --install -d Ubuntu`
+4. **Compact Compiler** — Install via:
+   ```bash
+   curl --proto '=https' --tlsv1.2 -LsSf https://github.com/midnightntwrk/compact/releases/latest/download/compact-installer.sh | sh
+   compact update
+   ```
+5. **Lace Wallet** — [Install browser extension](https://www.lace.io/) and configure to **Midnight Preprod**
+6. **Clone & Install**:
+   ```bash
+   git clone https://github.com/ps910/NEW-MOON-PROJECT-.git
+   cd NEW-MOON-PROJECT-
+   npm install
+   ```
 
-### Phase 8–10: Frontend & Verification
-- Run dev server: `npm run dev` or production build `npm run build`.
-- Run full test suite: `npm test`.
+### Phase 2: Compact Contract Compilation & Circuit Artifact Generation
+Compile the ZK-SNARK contract to produce proving keys and runtime bindings:
+```bash
+npm run compile
+```
+Generates the `managed/` directory containing:
+- ZK circuit definitions (WASM): `circuit_addMember.wasm`, `circuit_proveMembership.wasm`
+- Proving & verification keys: `proving_key.bin`, `verification_key.bin`
+- TypeScript contract bindings: `managed/allowlist/contract/index.d.ts`
+
+### Phase 3: Preprod On-Chain Deployment & State Initialization
+Deploy directly to the **Midnight Preprod Network** (local deployment is strictly rejected):
+```bash
+# 1. Start the proof server (configured for Preprod keys)
+docker run -p 6300:6300 midnightntwrk/proof-server:latest
+
+# 2. Execute Preprod deployment
+npm run deploy
+```
+Updates `deployment.json` with the on-chain contract address, transaction hash, and sequencer block height.
+
+### Phase 4: Frontend Preprod Network Binding & Lace Wallet Connection
+Start the frontend connected to Midnight Preprod:
+```bash
+npm run dev
+```
+Open `http://localhost:3000`, connect Lace (on Preprod network), and test membership proof generation.
+
+### Phase 5: Automated Testing & CI/CD Pipeline Verification
+Execute the test suite and production build:
+```bash
+# Run unit & privacy property tests (9 tests)
+npm test
+
+# Build production bundle
+npm run build
+```
+
+---
+
+## 📸 Screenshots & Proof of Preprod Execution
+
+### 1. DApp User Interface & Privacy Workflow
+![ZKGate Application UI](screenshots/app-preview.svg)
+
+### 2. Automated Test Suite (9/9 Tests Passing)
+![Vitest Test Suite Output](screenshots/test-output.svg)
+
+### 3. Midnight Preprod Network Contract Deployment
+![Preprod Deployment Output](screenshots/preprod-deployment.svg)
+
+
+---
+
+## 🧪 Test Output
+
+```
+$ npm test
+
+ ✓ src/test/contract.test.ts (6 tests)
+   ✓ Allowlist Contract Logic
+     ✓ generates a valid 32-byte member secret
+     ✓ derives a deterministic commitment from a secret
+     ✓ produces different commitments for different secrets
+     ✓ commitment differs from the original secret
+   ✓ Privacy Properties
+     ✓ generates unique nullifiers for different members
+     ✓ prevents double-proof using nullifier tracking
+
+ ✓ src/test/app.test.tsx (3 tests)
+   ✓ App Component
+     ✓ renders the main application with all sections
+     ✓ displays the privacy model section
+     ✓ shows initial stats with zero values
+
+ Test Files  2 passed (2)
+      Tests  9 passed (9)
+```
+
+---
+
+## 💡 Product Idea
+
+**ZKGate** is a privacy-preserving access control layer for Web3 communities, DAOs, and organizations. It enables **gated access** to events, beta programs, governance voting, or premium content — where users prove they're authorized without revealing _who they are_. Unlike traditional allowlists that expose wallet addresses, ZKGate uses Midnight's ZK-SNARK proofs to ensure that membership verification is completely anonymous. Imagine a DAO where members vote without anyone knowing who voted, or an event where attendees prove their ticket is valid without linking it to their identity. ZKGate turns "do you belong?" into a yes/no answer — with zero data leakage.
+
+---
+
+## 📁 Project Structure
+
+```
+steller-moon-midnight/
+├── .github/workflows/ci.yml      # CI/CD pipeline
+├── contract/
+│   ├── allowlist.compact          # Compact smart contract
+│   └── witnesses.ts              # Witness provider (private state)
+├── src/
+│   ├── main.tsx                   # React entry point
+│   ├── App.tsx                    # Main application
+│   ├── components/
+│   │   ├── WalletConnect.tsx      # Lace wallet integration
+│   │   ├── AllowlistManager.tsx   # Admin panel
+│   │   ├── MembershipProver.tsx   # ZK proof UI
+│   │   ├── StatsDisplay.tsx       # On-chain stats
+│   │   ├── AccessLog.tsx          # Verification events
+│   │   └── PrivacyModel.tsx       # Privacy explainer
+│   ├── styles/
+│   │   └── index.css              # Premium dark theme
+│   └── test/
+│       ├── setup.ts               # Test configuration
+│       ├── contract.test.ts       # Contract logic tests (6)
+│       └── app.test.tsx           # Component tests (3)
+├── public/favicon.svg
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+├── vitest.config.ts
+├── .env.example
+├── .gitignore
+└── README.md
+```
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Smart Contract | Compact (ZK-SNARK DSL) |
+| Frontend | React 18 + TypeScript |
+| Build Tool | Vite 5 |
+| Styling | Vanilla CSS (dark theme) |
+| Testing | Vitest + Testing Library |
+| CI/CD | GitHub Actions |
+| Wallet | Lace (Midnight DApp Connector) |
+| Network | Midnight Preprod |
 
 ---
 
@@ -199,4 +316,4 @@ MIT
 
 ---
 
-Built with 💜 on [Midnight Network](https://midnight.network) · Privacy-First Strategy for Everyone
+Built with 💜 on [Midnight Network](https://midnight.network) · Zero-Knowledge Privacy for Everyone

@@ -8,21 +8,22 @@
 
 ---
 
-## 📅 Phased Deployment Roadmap
+## 📅 Phased Preprod Execution Roadmap (Phases 0–10)
+
+This deployment guide executes the exact 11-phase sequence defined in [BUILD_SPEC.md](BUILD_SPEC.md). Every single phase requires verifiable on-chain evidence on **Midnight Preprod** before proceeding.
 
 ```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                          DEPLOYMENT PHASES                              │
-├─────────────────┬─────────────────┬─────────────────┬───────────────────┤
-│    PHASE 1      │    PHASE 2      │    PHASE 3      │     PHASE 4       │
-│ Preprod Env &   │ Circuit Compile │ Preprod On-Chain│ Frontend Preprod  │
-│ Toolchain Setup │ & Verification  │ Deployment      │ Wallet Binding    │
-└────────┬────────┴────────┬────────┴────────┬────────┴─────────┬─────────┘
-         │                 │                 │                  │
-         ▼                 ▼                 ▼                  ▼
-  • Node.js 22+     • Compact DSL     • Preprod Node     • Lace Extension
-  • Midnight Faucet • WASM generation • Sequencer Tx     • Preprod Network
-  • Preprod RPC     • managed/ dir    • deployment.json  • ZK Proof Status
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                        ZKGate Preprod Phased Build Roadmap                             │
+├───────────────┬───────────────┬───────────────┬────────────────┬───────────────────────┤
+│    PHASE 0    │    PHASE 1    │    PHASE 2    │    PHASE 3     │        PHASE 4        │
+│ Toolchain &   │ Skeleton &    │ Commitment    │ Private Witness│ Nullifier Replay      │
+│ Preprod Faucet│ Preprod Addr  │ Ingestion     │ Proving        │ Defense               │
+├───────────────┼───────────────┼───────────────┼────────────────┼───────────────────────┤
+│    PHASE 5    │    PHASE 6    │    PHASE 7    │    PHASE 8     │    PHASES 9 & 10      │
+│ Dynamic Scale │ Read Queries  │ Test Suite &  │ Frontend Live  │ Regression &          │
+│ & Root Mgt    │ & Auditability│ Invariants    │ Preprod Binding│ Submission Packaging  │
+└───────────────┴───────────────┴───────────────┴────────────────┴───────────────────────┘
 ```
 
 ---

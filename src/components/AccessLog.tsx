@@ -60,10 +60,10 @@ export function AccessLog({ logs }: Props) {
                     : '➕ Member Added'}
                 </div>
                 <div className="log-hash">
-                  Nullifier: {log.nullifier ? `${log.nullifier.slice(0, 18)}...${log.nullifier.slice(-8)}` : 'N/A'}
+                  Nullifier: {log.nullifier.slice(0, 18)}...{log.nullifier.slice(-8)}
                 </div>
               </div>
-              <div className="log-time">{formatTime(new Date(log.timestamp))}</div>
+              <div className="log-time">{formatTime(log.timestamp)}</div>
             </div>
           ))}
         </div>

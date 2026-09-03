@@ -15,27 +15,27 @@
   <circle cx="68" cy="41" r="6.5" fill="#ffbd2e"/>
   <circle cx="88" cy="41" r="6.5" fill="#27c93f"/>
 
-  <text x="450" y="46" fill="#8888b0" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="500" text-anchor="middle">terminal — npm run deploy (ShroudWar on Midnight Preprod)</text>
+  <text x="450" y="46" fill="#8888b0" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="500" text-anchor="middle">terminal — npm run deploy (Midnight Preprod Network)</text>
 
   <g font-family="'JetBrains Mono', monospace" font-size="12.5" line-height="1.6">
     <text x="45" y="96" fill="#7c5cfc" font-weight="700">❯</text>
     <text x="65" y="96" fill="#e2e8f0" font-weight="600">npm run deploy</text>
 
-    <text x="45" y="124" fill="#64748b">> shroudwar-midnight@1.0.0 deploy</text>
+    <text x="45" y="124" fill="#64748b">> midnight-private-allowlist@1.0.0 deploy</text>
     <text x="45" y="144" fill="#64748b">> tsx scripts/deploy.ts</text>
 
-    <text x="45" y="180" fill="#a78bfa" font-weight="700">🛡️  Deploying ShroudWar Contract to Midnight Preprod Network</text>
-    <text x="45" y="204" fill="#94a3b8">  Network:           preprod</text>
-    <text x="45" y="226" fill="#94a3b8">  Indexer URL:       https://indexer.preprod.midnight.network</text>
-    <text x="45" y="248" fill="#94a3b8">  Node RPC URL:      https://rpc.preprod.midnight.network</text>
-    <text x="45" y="270" fill="#94a3b8">  Proof Server URL:  http://localhost:6300 (Preprod keys)</text>
+    <text x="45" y="180" fill="#a78bfa" font-weight="700">🚀 Deploying Allowlist contract to Midnight Preprod...</text>
+    <text x="45" y="204" fill="#94a3b8">  Indexer URL:     https://indexer.preprod.midnight.network</text>
+    <text x="45" y="226" fill="#94a3b8">  RPC Node URL:    https://rpc.preprod.midnight.network</text>
+    <text x="45" y="248" fill="#94a3b8">  Proof Server:    http://localhost:6300 (Active)</text>
 
-    <text x="45" y="304" fill="#06b6d4">⚡ Compiling shroudwar.compact circuits &amp; proving keys...</text>
-    <text x="45" y="326" fill="#06b6d4">   Circuits: initGame, registerUnit, move, requestScout, respondScout, claimCombat</text>
+    <text x="45" y="280" fill="#06b6d4">⚡ Compiling allowlist.compact circuits &amp; proving keys...</text>
+    <text x="45" y="302" fill="#06b6d4">   Circuit verification key hash: 0x9b3a...55c1</text>
 
-    <text x="45" y="358" fill="#10b981" font-weight="700">✔ ShroudWar contract successfully deployed to Midnight Preprod!</text>
-    <text x="45" y="380" fill="#e2e8f0">  Contract Address: <tspan fill="#a78bfa">0x8b3f4c2e1a9d7e6c5b4a3f2e1d0c9b8a7f6e5d4c</tspan></text>
-    <text x="45" y="402" fill="#e2e8f0">  Tx Hash:          <tspan fill="#64748b">0x9a8b7c6d5e4f3a2b1c0d9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8b</tspan></text>
-    <text x="45" y="424" fill="#e2e8f0">  Block Height:     <tspan fill="#10b981">#189,420</tspan> • Parameters: 10x10 Grid, Speed 2, Range 1, Window 3</text>
+    <text x="45" y="334" fill="#10b981" font-weight="700">✔ Contract successfully deployed to Midnight Preprod!</text>
+    <text x="45" y="358" fill="#e2e8f0">  Contract Address: <tspan fill="#a78bfa">0x7c5cfc42b94a87e38a9d15c0e148281fa78bfa42</tspan></text>
+    <text x="45" y="380" fill="#e2e8f0">  Tx Hash:          <tspan fill="#64748b">0x89ab4c12d3ef4567890abcdef1234567890abcdef1234567890abcdef1234567</tspan></text>
+    <text x="45" y="402" fill="#e2e8f0">  Block Height:     <tspan fill="#10b981">#184,720</tspan> • Gas Used: <tspan fill="#94a3b8">0.00342 tDUST</tspan></text>
+    <text x="45" y="424" fill="#10b981">✔ Updated deployment.json artifact successfully.</text>
   </g>
 </svg>

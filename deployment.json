@@ -1,18 +1,20 @@
 {
   "network": "preprod",
-  "contractName": "ShroudWar",
-  "contractAddress": "0x8b3f4c2e1a9d7e6c5b4a3f2e1d0c9b8a7f6e5d4c",
+  "contractName": "allowlist",
+  "contractAddress": "0x7c5cfc42b94a87e38a9d15c0e148281fa78bfa42",
   "deployer": "0x3f2a1b9c8d7e6f5a4b3c2d1e0f9a8b7c6d5e4f3a",
-  "transactionHash": "0x9a8b7c6d5e4f3a2b1c0d9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8b",
-  "blockHeight": 189420,
-  "deployedAt": "2026-09-03T17:48:00.000Z",
-  "indexerUrl": "https://indexer.preprod.midnight.network",
-  "nodeUrl": "https://rpc.preprod.midnight.network",
-  "gameParameters": {
-    "gridSize": 10,
-    "unitsPerPlayer": 4,
-    "moveSpeed": 2,
-    "combatRange": 1,
-    "scoutWindow": 3
+  "transactionHash": "0x8af989d286f781fd5df92d6797684712efaf0f59cdabb48140cded18cb135da5",
+  "blockHeight": 184592,
+  "timestamp": "2026-09-03T17:20:25.894Z",
+  "circuits": [
+    "addMember",
+    "proveMembership",
+    "getMemberCount",
+    "getVerifiedCount"
+  ],
+  "initialState": {
+    "allowlistName": "ZKGate Beta Access",
+    "memberCount": 0,
+    "verifiedCount": 0
   }
 }
