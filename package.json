@@ -1,13 +1,13 @@
 {
-  "name": "midnight-private-allowlist",
+  "name": "shroudwar-midnight",
   "version": "1.0.0",
-  "description": "Private Allowlist Access DApp on Midnight Network — prove membership without revealing identity using ZK proofs",
+  "description": "ShroudWar — On-chain Fog-of-War 1v1 Strategy Game on Midnight Network (Level 4)",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "compile": "compact compile contract/allowlist.compact --output managed/",
+    "compile": "compact compile contract/src/shroudwar.compact --output managed/shroudwar/",
     "test": "vitest run",
     "test:watch": "vitest",
     "deploy": "tsx scripts/deploy.ts",
