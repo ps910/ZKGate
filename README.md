@@ -11,8 +11,8 @@ A decentralized 1v1 strategy game on Midnight bringing the iconic **Dark Forest*
 > **Contract Address (Preprod)**: `0x8b3f4c2e1a9d7e6c5b4a3f2e1d0c9b8a7f6e5d4c`  
 > See the complete [BUILD_SPEC.md](BUILD_SPEC.md) and [DEPLOYMENT.md](DEPLOYMENT.md) for full phase-by-phase documentation.
 
-![CI](https://github.com/ps910/NEW-MOON-PROJECT-/actions/workflows/ci.yml/badge.svg)
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-success?style=flat&logo=github)](https://ps910.github.io/NEW-MOON-PROJECT-/)
+![CI](https://github.com/ps910/ZKGate/actions/workflows/ci.yml/badge.svg)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-success?style=flat&logo=github)](https://ps910.github.io/ZKGate/)
 [![Network](https://img.shields.io/badge/Network-Midnight%20Preprod-7c5cfc?style=flat)](https://indexer.preprod.midnight.network)
 [![Tests](https://img.shields.io/badge/Tests-20%20Passing-10b981?style=flat)](screenshots/test-output.svg)
 [![Build Spec](https://img.shields.io/badge/Spec-Level%204%20Build%20Spec-blue)](BUILD_SPEC.md)
@@ -23,7 +23,7 @@ A decentralized 1v1 strategy game on Midnight bringing the iconic **Dark Forest*
 
 ### 🔗 Quick Links & Verification
 
-- 🌐 **Live DApp Demo**: [https://ps910.github.io/NEW-MOON-PROJECT-/](https://ps910.github.io/NEW-MOON-PROJECT-/)
+- 🌐 **Live DApp Demo**: [https://ps910.github.io/ZKGate/](https://ps910.github.io/ZKGate/)
 - 📘 **Official Level 4 Build Spec**: [BUILD_SPEC.md](BUILD_SPEC.md)
 - 📄 **Product Proposal Document**: [PROPOSAL.md](PROPOSAL.md)
 - 🎬 **1-Minute Video Script & Flow**: [DEMO_VIDEO_SCRIPT.md](DEMO_VIDEO_SCRIPT.md)
@@ -42,8 +42,8 @@ A decentralized 1v1 strategy game on Midnight bringing the iconic **Dark Forest*
 | **CI/CD pipeline running** | ✅ **PASS** | [`.github/workflows/ci.yml`](.github/workflows/ci.yml) (TypeScript, 20 tests, Vite bundle, Pages deploy) |
 | **Approved idea submitted from idea list** | ✅ **PASS** | *"On-Chain Strategy Game (Dark Forest / Fog-of-War)"* — see [PROPOSAL.md](PROPOSAL.md) & [BUILD_SPEC.md](BUILD_SPEC.md) |
 | **Minimum 10 meaningful commits** | ✅ **PASS** | 20+ structured semantic commits with clean git history |
-| **Public GitHub repository** | ✅ **PASS** | [github.com/ps910/NEW-MOON-PROJECT-](https://github.com/ps910/NEW-MOON-PROJECT-) |
-| **Live demo link** | ✅ **PASS** | [ps910.github.io/NEW-MOON-PROJECT-/](https://ps910.github.io/NEW-MOON-PROJECT-/) |
+| **Public GitHub repository** | ✅ **PASS** | [github.com/ps910/ZKGate](https://github.com/ps910/ZKGate) |
+| **Live demo link** | ✅ **PASS** | [ps910.github.io/ZKGate/](https://ps910.github.io/ZKGate/) |
 | **Screenshot: test output (3+ tests passing)** | ✅ **PASS** | [screenshots/test-output.svg](screenshots/test-output.svg) |
 | **Demo video (1 minute) showing full functionality** | ✅ **PASS** | [DEMO_VIDEO_SCRIPT.md](DEMO_VIDEO_SCRIPT.md) |
 | **README "privacy model" section** | ✅ **PASS** | [Privacy Model Section](#-privacy-model) detailing observer vs private witness |

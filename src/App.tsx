@@ -139,7 +139,7 @@ export const App: React.FC = () => {
         <div className="footer-right">
           <a href="https://indexer.preprod.midnight.network" target="_blank" rel="noreferrer">Preprod Indexer</a>
           <span>·</span>
-          <a href="https://github.com/ps910/NEW-MOON-PROJECT-" target="_blank" rel="noreferrer">GitHub Repository</a>
+          <a href="https://github.com/ps910/ZKGate" target="_blank" rel="noreferrer">GitHub Repository</a>
         </div>
       </footer>
     </div>

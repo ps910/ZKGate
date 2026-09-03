@@ -73,7 +73,7 @@ ShroudWar demonstrates that Midnight makes "private state, selectively disclosed
 ## 7. Submission Details
 
 - **Project Name**: ShroudWar
-- **Repository**: [https://github.com/ps910/NEW-MOON-PROJECT-](https://github.com/ps910/NEW-MOON-PROJECT-)
-- **Live Demo**: [https://ps910.github.io/NEW-MOON-PROJECT-/](https://ps910.github.io/NEW-MOON-PROJECT-/)
+- **Repository**: [https://github.com/ps910/ZKGate](https://github.com/ps910/ZKGate)
+- **Live Demo**: [https://ps910.github.io/ZKGate/](https://ps910.github.io/ZKGate/)
 - **Target Network**: Midnight Preprod (`https://indexer.preprod.midnight.network`)
 - **Contract Address (Preprod)**: `0x8b3f4c2e1a9d7e6c5b4a3f2e1d0c9b8a7f6e5d4c`

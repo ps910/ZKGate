@@ -19,6 +19,6 @@ This document outlines the 60-second video presentation demonstrating full funct
 ## 🎙️ Recording Instructions
 
 1. **Resolution**: 1920x1080 (16:9).
-2. **Setup**: Run `npm run preview` or open the live deployment at [https://ps910.github.io/NEW-MOON-PROJECT-/](https://ps910.github.io/NEW-MOON-PROJECT-/).
+2. **Setup**: Run `npm run preview` or open the live deployment at [https://ps910.github.io/ZKGate/](https://ps910.github.io/ZKGate/).
 3. **Pacing**: Crisp, authoritative narration at ~130 words per minute.
 4. **Link**: Insert video URL into `README.md` under the Demo Video section.
