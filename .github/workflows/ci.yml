@@ -7,17 +7,17 @@ on:
     branches: [main]
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
 concurrency:
-  group: 'pages'
-  cancel-in-progress: false
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build-and-test:
-    name: Build & Test
+    name: Build, Test & Deploy
     runs-on: ubuntu-latest
 
     steps:
@@ -36,28 +36,23 @@ jobs:
       - name: TypeScript type check
         run: npx tsc --noEmit --skipLibCheck
 
-      - name: Run test suite (9 tests)
+      - name: Run test suite (20 tests)
         run: npm test
 
       - name: Build production bundle
         run: npm run build
 
-      - name: Upload dist artifact
-        uses: actions/upload-pages-artifact@v3
-        if: github.ref == 'refs/heads/main'
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
         with:
+          name: dist
           path: dist/
+          retention-days: 7
 
-  deploy-pages:
-    name: Deploy to GitHub Pages
-    needs: build-and-test
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-
+      - name: Deploy to GitHub Pages (gh-pages branch)
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          force_orphan: true
