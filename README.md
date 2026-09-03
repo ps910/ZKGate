@@ -4,6 +4,13 @@ A decentralized application that enables **private allowlist verification** usin
 
 Built with **Compact smart contracts**, **React + TypeScript**, and the **Midnight.js SDK** for the [New Moon to Full: Monthly Moonshots on Midnight](https://www.risein.com/programs/new-moon-to-full-monthly-moonshots-on-midnight) builder challenge.
 
+> [!IMPORTANT]
+> **⚠️ MANDATORY DEPLOYMENT POLICY: STRICT PREPROD ONLY**
+>
+> All smart contracts, circuits, and services in this project are deployed and verified directly on the **Midnight Preprod Network (`preprod`)**.
+> **Local deployments (`localhost`, `undeployed`, mock devnets) are strictly prohibited.**
+> See the complete [DEPLOYMENT.md](DEPLOYMENT.md) for full phase-by-phase documentation.
+
 ![CI](https://github.com/YOUR_USERNAME/steller-moon-midnight/actions/workflows/ci.yml/badge.svg)
 
 ---
@@ -109,10 +116,11 @@ The `disclose()` function in Compact is used **deliberately** — only the allow
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Phased Deployment Guide (Midnight Preprod)
 
-### Prerequisites
+> All phases strictly target the live **Midnight Preprod Network**. See [DEPLOYMENT.md](DEPLOYMENT.md) for full endpoint specifications.
 
+### Phase 1: Environment & Preprod Toolchain Setup
 1. **Node.js 22+** — [Install via nvm](https://github.com/nvm-sh/nvm)
 2. **Docker Desktop** — [Download](https://www.docker.com/products/docker-desktop/)
 3. **WSL2** (Windows only) — `wsl --install -d Ubuntu`
@@ -121,52 +129,50 @@ The `disclose()` function in Compact is used **deliberately** — only the allow
    curl --proto '=https' --tlsv1.2 -LsSf https://github.com/midnightntwrk/compact/releases/latest/download/compact-installer.sh | sh
    compact update
    ```
-5. **Lace Wallet** — [Install browser extension](https://www.lace.io/) and switch to Midnight Preprod
+5. **Lace Wallet** — [Install browser extension](https://www.lace.io/) and configure to **Midnight Preprod**
+6. **Clone & Install**:
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/steller-moon-midnight.git
+   cd steller-moon-midnight
+   npm install
+   ```
 
-### Step 1: Clone and Install
-
-```bash
-git clone https://github.com/YOUR_USERNAME/steller-moon-midnight.git
-cd steller-moon-midnight
-npm install
-```
-
-### Step 2: Compile the Contract
-
+### Phase 2: Compact Contract Compilation & Circuit Artifact Generation
+Compile the ZK-SNARK contract to produce proving keys and runtime bindings:
 ```bash
 npm run compile
 ```
+Generates the `managed/` directory containing:
+- ZK circuit definitions (WASM): `circuit_addMember.wasm`, `circuit_proveMembership.wasm`
+- Proving & verification keys: `proving_key.bin`, `verification_key.bin`
+- TypeScript contract bindings: `managed/allowlist/contract/index.d.ts`
 
-This generates the `managed/` directory containing:
-- ZK circuit definitions (WASM)
-- Proving keys
-- Verification keys
-- TypeScript type bindings
-
-### Step 3: Run Tests
-
+### Phase 3: Preprod On-Chain Deployment & State Initialization
+Deploy directly to the **Midnight Preprod Network** (local deployment is strictly rejected):
 ```bash
-npm test
+# 1. Start the proof server (configured for Preprod keys)
+docker run -p 6300:6300 midnightntwrk/proof-server:latest
+
+# 2. Execute Preprod deployment
+npm run deploy
 ```
+Updates `deployment.json` with the on-chain contract address, transaction hash, and sequencer block height.
 
-Expected: 9 tests passing ✅
-
-### Step 4: Start Development Server
-
+### Phase 4: Frontend Preprod Network Binding & Lace Wallet Connection
+Start the frontend connected to Midnight Preprod:
 ```bash
 npm run dev
 ```
+Open `http://localhost:3000`, connect Lace (on Preprod network), and test membership proof generation.
 
-Opens at `http://localhost:3000`
-
-### Step 5: Deploy to Preprod
-
+### Phase 5: Automated Testing & CI/CD Pipeline Verification
+Execute the test suite and production build:
 ```bash
-# Start the proof server (Docker required)
-docker run -p 6300:6300 midnightntwrk/proof-server:latest
+# Run unit & privacy property tests (9 tests)
+npm test
 
-# Deploy the contract
-npm run deploy
+# Build production bundle
+npm run build
 ```
 
 ---

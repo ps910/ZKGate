@@ -30,10 +30,14 @@ async function main() {
   console.log('----------------------------------------------------');
 
   const network = process.env.VITE_MIDNIGHT_NETWORK || 'preprod';
+  if (network.toLowerCase() === 'local' || network.toLowerCase() === 'localhost' || network.toLowerCase() === 'undeployed') {
+    throw new Error('❌ Policy Violation: Local deployment is disabled. All deployments must target Midnight Preprod network.');
+  }
+
   const nodeUrl = process.env.VITE_MIDNIGHT_NODE_URL || 'https://rpc.preprod.midnight.network';
   const proofServerUrl = process.env.VITE_MIDNIGHT_PROOF_SERVER_URL || 'http://localhost:6300';
 
-  console.log(`Target Network : ${network}`);
+  console.log(`Target Network : ${network.toUpperCase()} (STRICT PREPROD POLICY)`);
   console.log(`Node RPC URL   : ${nodeUrl}`);
   console.log(`Proof Server   : ${proofServerUrl}`);
   console.log('\n[1/4] Verifying contract artifacts in managed/ directory...');
