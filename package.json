@@ -1,0 +1,47 @@
+{
+  "name": "midnight-private-allowlist",
+  "version": "1.0.0",
+  "description": "Private Allowlist Access DApp on Midnight Network — prove membership without revealing identity using ZK proofs",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "compile": "compact compile contract/allowlist.compact --output managed/",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "deploy": "tsx scripts/deploy.ts",
+    "lint": "tsc --noEmit"
+  },
+  "keywords": [
+    "midnight",
+    "zk",
+    "privacy",
+    "allowlist",
+    "zero-knowledge"
+  ],
+  "author": "pramo",
+  "license": "MIT",
+  "dependencies": {
+    "@midnight-ntwrk/compact-runtime": "^0.19.0",
+    "@midnight-ntwrk/dapp-connector-api": "^4.0.1",
+    "@midnight-ntwrk/midnight-js-contracts": "^4.1.1",
+    "@midnight-ntwrk/midnight-js-types": "^4.1.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.4.8",
+    "@testing-library/react": "^16.0.0",
+    "@types/node": "^26.4.1",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "jsdom": "^24.1.1",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.2",
+    "vitest": "^2.0.5"
+  }
+}
