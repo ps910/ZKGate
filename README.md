@@ -214,7 +214,13 @@ npm run build
 
 ---
 
-## 📸 Screenshots & Proof of Preprod Execution
+## 🎥 1-Minute Demo Video & Screenshots
+
+### 🎬 Live Demo Video (Full Functionality Walkthrough)
+![ZKGate 1-Minute Demo Video Walkthrough](screenshots/demo.webp)
+
+> [!TIP]
+> The automated 1-minute demo above shows the complete end-to-end flow: Lace wallet connection, member commitment generation, zero-knowledge membership proof execution, green verification banner with registered nullifier, and live public ledger metrics on Midnight Preprod.
 
 ### 1. DApp User Interface & Privacy Workflow
 ![ZKGate Application UI](screenshots/app-preview.svg)

@@ -4,6 +4,12 @@ This document outlines the 60-second video presentation demonstrating full funct
 
 ---
 
+## 🎥 1-Minute Demo Video (Interactive Walkthrough)
+
+![ZKGate 1-Minute Demo Video](screenshots/demo.webp)
+
+---
+
 ## ⏱️ Timeline Breakdown (Total: 60 Seconds)
 
 | Timestamp | Visual Action on Screen | Spoken Narration | Key Takeaway |
