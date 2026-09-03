@@ -277,7 +277,6 @@ steller-moon-midnight/
 │   ├── config.ts                  # Midnight Preprod network endpoints
 │   └── main.tsx                   # React DOM entry
 ├── BUILD_SPEC.md                  # Comprehensive Level 4 build specification
-├── DEMO_VIDEO_SCRIPT.md           # 60-second video recording script
 ├── DEPLOYMENT.md                  # Phased Preprod deployment manual
 ├── PROPOSAL.md                    # Official product proposal document
 ├── deployment.json                # Live Midnight Preprod deployment record
@@ -398,7 +397,7 @@ Rule for the agent: **do not treat this as "build ZKGate" in one pass.** Complet
 - **DoD**: Clean recorded match/session on Preprod; verified transaction hashes captured in `deployment.json` and `walkthrough.md`.
 
 ### Phase 10 — Docs, CI/CD & Submission Packaging
-- Finalize `README.md`, `PROPOSAL.md`, `DEMO_VIDEO_SCRIPT.md`, and `DEPLOYMENT.md`.
+- Finalize `README.md`, `PROPOSAL.md`, `DEPLOYMENT.md`, and 1-minute demo video (`screenshots/demo.gif`).
 - Ensure GitHub Actions workflow runs tests and deploys to GitHub Pages on push.
 - Ensure 10+ semantic git commits are pushed to `https://github.com/ps910/NEW-MOON-PROJECT-.git`.
 - **DoD**: All items on the Level 1–4 Submission Checklist verified and passing.

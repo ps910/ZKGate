@@ -351,7 +351,7 @@ if (dAppConnector) {
    - Public GitHub repository with comprehensive README.
    - Live demo link.
    - Test output screenshot (9 passing tests).
-   - 1-minute demo video script (`DEMO_VIDEO_SCRIPT.md`).
+   - 1-minute full functionality demo video (`screenshots/demo.gif`).
    - Official product proposal (`PROPOSAL.md`).
    - 20+ meaningful semantic git commits.
 

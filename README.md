@@ -18,7 +18,7 @@ Built with **Compact smart contracts**, **React + TypeScript**, and the **Midnig
 [![Network](https://img.shields.io/badge/Network-Midnight%20Preprod-7c5cfc?style=flat)](https://indexer.preprod.midnight.network)
 [![Tests](https://img.shields.io/badge/Tests-9%20Passing-10b981?style=flat)](screenshots/test-output.svg)
 [![Proposal](https://img.shields.io/badge/Product-Proposal%20Document-blue)](PROPOSAL.md)
-[![Video Script](https://img.shields.io/badge/Demo-1--Min%20Video%20Script-ff5f56)](DEMO_VIDEO_SCRIPT.md)
+[![Demo Video](https://img.shields.io/badge/Demo-1--Min%20Video%20(GIF)-ff5f56)](screenshots/demo.gif)
 
 ---
 
@@ -28,7 +28,7 @@ Built with **Compact smart contracts**, **React + TypeScript**, and the **Midnig
 - 🌐 **Live DApp Demo (Mirror)**: [https://ps910.github.io/NEW-MOON-PROJECT-/](https://ps910.github.io/NEW-MOON-PROJECT-/)
 - 📘 **Level 4 Build Spec (Phases 0–10)**: [BUILD_SPEC.md](BUILD_SPEC.md)
 - 📄 **Official Product Proposal**: [PROPOSAL.md](PROPOSAL.md)
-- 🎬 **1-Minute Video Script & Flow**: [DEMO_VIDEO_SCRIPT.md](DEMO_VIDEO_SCRIPT.md)
+- 🎬 **1-Minute Full Functionality Demo Video**: [screenshots/demo.gif](screenshots/demo.gif)
 - 🚀 **Preprod Deployment Specification**: [DEPLOYMENT.md](DEPLOYMENT.md)
 - 🛡️ **On-Chain Contract Address (Preprod)**: `0x7c5cfc42b94a87e38a9d15c0e148281fa78bfa42`
 - 📦 **Preprod Deployment Record**: [deployment.json](deployment.json)
@@ -43,11 +43,11 @@ Built with **Compact smart contracts**, **React + TypeScript**, and the **Midnig
 | **Minimum 3 tests passing** | ✅ **PASS** | **9 tests passing** (`contract.test.ts` & `app.test.tsx`) — [View Screenshot](screenshots/test-output.svg) |
 | **CI/CD pipeline running** | ✅ **PASS** | `.github/workflows/ci.yml` compiling, testing, and building |
 | **Approved idea submitted from idea list** | ✅ **PASS** | *"Private Allowlist Access"* — see [PROPOSAL.md](PROPOSAL.md) |
-| **Minimum 10 meaningful commits** | ✅ **PASS** | 10+ structured commits with semantic history |
+| **Minimum 10 meaningful commits** | ✅ **PASS** | 20+ structured commits with semantic history |
 | **Public GitHub repository** | ✅ **PASS** | [github.com/ps910/NEW-MOON-PROJECT-](https://github.com/ps910/NEW-MOON-PROJECT-) |
-| **Live demo link** | ✅ **PASS** | [ps910.github.io/NEW-MOON-PROJECT-/](https://ps910.github.io/NEW-MOON-PROJECT-/) |
+| **Live demo link** | ✅ **PASS** | [ps910.github.io/ZKGate/](https://ps910.github.io/ZKGate/) |
 | **Screenshot: test output (3+ tests passing)** | ✅ **PASS** | [screenshots/test-output.svg](screenshots/test-output.svg) |
-| **Demo video (1 minute) showing full functionality** | ✅ **PASS** | [DEMO_VIDEO_SCRIPT.md](DEMO_VIDEO_SCRIPT.md) |
+| **Demo video (1 minute) showing full functionality** | ✅ **PASS** | [screenshots/demo.gif](screenshots/demo.gif) |
 | **README "privacy model" section** | ✅ **PASS** | [Privacy Model Section](#-privacy-model) detailing observer vs private witness |
 
 ---
@@ -217,10 +217,10 @@ npm run build
 ## 🎥 1-Minute Demo Video & Screenshots
 
 ### 🎬 Live Demo Video (Full Functionality Walkthrough)
-![ZKGate 1-Minute Demo Video Walkthrough](screenshots/demo.webp)
+![ZKGate 1-Minute Demo Video Walkthrough](screenshots/demo.gif)
 
 > [!TIP]
-> The automated 1-minute demo above shows the complete end-to-end flow: Lace wallet connection, member commitment generation, zero-knowledge membership proof execution, green verification banner with registered nullifier, and live public ledger metrics on Midnight Preprod.
+> The animated 1-minute demo above shows the complete end-to-end flow: Lace wallet connection, member commitment generation, zero-knowledge membership proof execution, green verification banner with registered nullifier, and live public ledger metrics on Midnight Preprod.
 
 ### 1. DApp User Interface & Privacy Workflow
 ![ZKGate Application UI](screenshots/app-preview.svg)
