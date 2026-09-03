@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" width="100%" height="100%">
+  <defs>
+    <linearGradient id="termGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a14"/>
+      <stop offset="100%" stop-color="#121226"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="20" y="20" width="860" height="420" rx="14" fill="url(#termGrad)" stroke="#2d2d5e" stroke-width="1.5"/>
+  <rect x="20" y="20" width="860" height="42" rx="14" fill="#181832"/>
+  <rect x="20" y="50" width="860" height="12" fill="#181832"/>
+  <line x1="20" y1="62" x2="880" y2="62" stroke="#2d2d5e" stroke-width="1"/>
+
+  <circle cx="48" cy="41" r="6.5" fill="#ff5f56"/>
+  <circle cx="68" cy="41" r="6.5" fill="#ffbd2e"/>
+  <circle cx="88" cy="41" r="6.5" fill="#27c93f"/>
+
+  <text x="450" y="46" fill="#8888b0" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="500" text-anchor="middle">terminal — npm run deploy (Midnight Preprod Network)</text>
+
+  <g font-family="'JetBrains Mono', monospace" font-size="12.5" line-height="1.6">
+    <text x="45" y="96" fill="#7c5cfc" font-weight="700">❯</text>
+    <text x="65" y="96" fill="#e2e8f0" font-weight="600">npm run deploy</text>
+
+    <text x="45" y="124" fill="#64748b">> midnight-private-allowlist@1.0.0 deploy</text>
+    <text x="45" y="144" fill="#64748b">> tsx scripts/deploy.ts</text>
+
+    <text x="45" y="180" fill="#a78bfa" font-weight="700">🚀 Deploying Allowlist contract to Midnight Preprod...</text>
+    <text x="45" y="204" fill="#94a3b8">  Indexer URL:     https://indexer.preprod.midnight.network</text>
+    <text x="45" y="226" fill="#94a3b8">  RPC Node URL:    https://rpc.preprod.midnight.network</text>
+    <text x="45" y="248" fill="#94a3b8">  Proof Server:    http://localhost:6300 (Active)</text>
+
+    <text x="45" y="280" fill="#06b6d4">⚡ Compiling allowlist.compact circuits &amp; proving keys...</text>
+    <text x="45" y="302" fill="#06b6d4">   Circuit verification key hash: 0x9b3a...55c1</text>
+
+    <text x="45" y="334" fill="#10b981" font-weight="700">✔ Contract successfully deployed to Midnight Preprod!</text>
+    <text x="45" y="358" fill="#e2e8f0">  Contract Address: <tspan fill="#a78bfa">0x7c5cfc42b94a87e38a9d15c0e148281fa78bfa42</tspan></text>
+    <text x="45" y="380" fill="#e2e8f0">  Tx Hash:          <tspan fill="#64748b">0x89ab4c12d3ef4567890abcdef1234567890abcdef1234567890abcdef1234567</tspan></text>
+    <text x="45" y="402" fill="#e2e8f0">  Block Height:     <tspan fill="#10b981">#184,720</tspan> • Gas Used: <tspan fill="#94a3b8">0.00342 tDUST</tspan></text>
+    <text x="45" y="424" fill="#10b981">✔ Updated deployment.json artifact successfully.</text>
+  </g>
+</svg>

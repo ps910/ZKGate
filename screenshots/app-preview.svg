@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#080812"/>
+      <stop offset="50%" stop-color="#0e0e22"/>
+      <stop offset="100%" stop-color="#0a0a16"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7c5cfc"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#16162e"/>
+      <stop offset="100%" stop-color="#121226"/>
+    </linearGradient>
+    <filter id="glow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="760" fill="url(#bgGrad)"/>
+
+  <!-- Top Navigation Bar -->
+  <rect x="0" y="0" width="1200" height="70" fill="#101026" stroke="#25254a" stroke-width="1"/>
+  
+  <!-- Logo & Title -->
+  <circle cx="50" cy="35" r="18" fill="url(#accentGrad)"/>
+  <path d="M 44 35 L 48 39 L 57 30" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="80" y="42" fill="#ffffff" font-family="'Inter', -apple-system, sans-serif" font-size="22" font-weight="800" letter-spacing="-0.5">ZKGate</text>
+  <rect x="175" y="26" width="72" height="20" rx="10" fill="#7c5cfc" fill-opacity="0.2" stroke="#7c5cfc" stroke-width="1"/>
+  <text x="211" y="40" fill="#a78bfa" font-family="'Inter', sans-serif" font-size="11" font-weight="700" text-anchor="middle">PREPROD</text>
+
+  <!-- Navigation Pill Statuses -->
+  <rect x="740" y="24" width="220" height="24" rx="12" fill="#10b981" fill-opacity="0.12" stroke="#10b981" stroke-width="0.8"/>
+  <circle cx="755" cy="36" r="4" fill="#10b981"/>
+  <text x="860" y="40" fill="#10b981" font-family="'Inter', sans-serif" font-size="11" font-weight="600" text-anchor="middle">Midnight Preprod Connected</text>
+
+  <rect x="980" y="18" width="190" height="34" rx="8" fill="url(#accentGrad)"/>
+  <text x="1075" y="40" fill="#ffffff" font-family="'Inter', sans-serif" font-size="12" font-weight="700" text-anchor="middle">0x3f2a...4f3a (Lace)</text>
+
+  <!-- Main Hero Content -->
+  <text x="600" y="130" fill="#ffffff" font-family="'Inter', sans-serif" font-size="34" font-weight="800" text-anchor="middle">Private Allowlist Access</text>
+  <text x="600" y="160" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="15" text-anchor="middle">Prove membership without revealing identity using Zero-Knowledge proofs on Midnight Preprod</text>
+
+  <!-- Left Column: Prover Card -->
+  <rect x="60" y="195" width="520" height="340" rx="12" fill="url(#cardGrad)" stroke="#2c2c58" stroke-width="1.2"/>
+  <rect x="60" y="195" width="520" height="50" rx="12" fill="#1c1c38"/>
+  <text x="85" y="226" fill="#f8fafc" font-family="'Inter', sans-serif" font-size="16" font-weight="700">🔐 Prove Allowlist Membership</text>
+  
+  <text x="85" y="275" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="13">1. Enter or generate your private member secret:</text>
+  <rect x="85" y="290" width="470" height="42" rx="8" fill="#0c0c1a" stroke="#37376b" stroke-width="1"/>
+  <text x="105" y="316" fill="#a78bfa" font-family="'JetBrains Mono', monospace" font-size="12">0x4a8f9c2d1e0b3a7f8e5c6d2a1b4e9f0c3d5a7b...</text>
+
+  <!-- Proof State Success Banner -->
+  <rect x="85" y="350" width="470" height="95" rx="8" fill="#10b981" fill-opacity="0.1" stroke="#10b981" stroke-width="1"/>
+  <circle cx="115" cy="385" r="14" fill="#10b981"/>
+  <path d="M 109 385 L 113 389 L 122 380" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="140" y="380" fill="#10b981" font-family="'Inter', sans-serif" font-size="14" font-weight="700">Zero-Knowledge Proof Verified On-Chain!</text>
+  <text x="140" y="402" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="12">Nullifier registered: 0x9e12...b4f0 • No identity disclosed</text>
+  <text x="140" y="424" fill="#64748b" font-family="'Inter', sans-serif" font-size="11">Gas: 0.002 tDUST • Proof Time: 2.1s • Preprod Block: #184,920</text>
+
+  <rect x="85" y="465" width="470" height="46" rx="8" fill="url(#accentGrad)"/>
+  <text x="320" y="493" fill="#ffffff" font-family="'Inter', sans-serif" font-size="14" font-weight="700" text-anchor="middle">Generate &amp; Submit ZK Proof</text>
+
+  <!-- Right Column: Admin & Stats -->
+  <rect x="620" y="195" width="520" height="155" rx="12" fill="url(#cardGrad)" stroke="#2c2c58" stroke-width="1.2"/>
+  <text x="645" y="230" fill="#f8fafc" font-family="'Inter', sans-serif" font-size="15" font-weight="700">📊 On-Chain Public Ledger Stats</text>
+
+  <rect x="645" y="250" width="150" height="75" rx="8" fill="#0d0d1e" stroke="#2a2a52" stroke-width="1"/>
+  <text x="660" y="275" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11">Members</text>
+  <text x="660" y="308" fill="#a78bfa" font-family="'Inter', sans-serif" font-size="24" font-weight="800">42</text>
+
+  <rect x="805" y="250" width="150" height="75" rx="8" fill="#0d0d1e" stroke="#2a2a52" stroke-width="1"/>
+  <text x="820" y="275" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11">Verifications</text>
+  <text x="820" y="308" fill="#06b6d4" font-family="'Inter', sans-serif" font-size="24" font-weight="800">128</text>
+
+  <rect x="965" y="250" width="150" height="75" rx="8" fill="#0d0d1e" stroke="#2a2a52" stroke-width="1"/>
+  <text x="980" y="275" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11">Max Capacity</text>
+  <text x="980" y="308" fill="#10b981" font-family="'Inter', sans-serif" font-size="24" font-weight="800">1,000</text>
+
+  <!-- Right Column: Nullifier Access Log -->
+  <rect x="620" y="370" width="520" height="165" rx="12" fill="url(#cardGrad)" stroke="#2c2c58" stroke-width="1.2"/>
+  <text x="645" y="400" fill="#f8fafc" font-family="'Inter', sans-serif" font-size="14" font-weight="700">📜 Public Verification Events (Unlinkable Nullifiers)</text>
+
+  <text x="645" y="430" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="11">BLOCK #184920 • nullifier: 0x9e12af...b4f0 • VERIFIED</text>
+  <text x="645" y="455" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="11">BLOCK #184892 • nullifier: 0x3d71bc...a801 • VERIFIED</text>
+  <text x="645" y="480" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="11">BLOCK #184761 • nullifier: 0xfe8204...99a2 • VERIFIED</text>
+  <text x="645" y="505" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="11">BLOCK #184510 • nullifier: 0x7c4912...e31b • VERIFIED</text>
+
+  <!-- Bottom: Privacy Model Matrix Banner -->
+  <rect x="60" y="555" width="1080" height="175" rx="12" fill="#121228" stroke="#2f2f5c" stroke-width="1"/>
+  <text x="90" y="585" fill="#ffffff" font-family="'Inter', sans-serif" font-size="15" font-weight="700">🛡️ Midnight Privacy Model: What Observers Learn vs Keep Private</text>
+
+  <rect x="90" y="602" width="510" height="108" rx="8" fill="#10b981" fill-opacity="0.08" stroke="#10b981" stroke-width="0.7"/>
+  <text x="110" y="625" fill="#10b981" font-family="'Inter', sans-serif" font-size="12" font-weight="700">PUBLIC TO ON-CHAIN OBSERVERS</text>
+  <text x="110" y="648" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="11">• Total allowlist count and registered commitments (hashed)</text>
+  <text x="110" y="670" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="11">• Unique nullifier upon verification (prevents replay)</text>
+  <text x="110" y="692" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="11">• Validity of the ZK proof itself (binary TRUE/FALSE)</text>
+
+  <rect x="620" y="602" width="520" height="108" rx="8" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-width="0.7"/>
+  <text x="640" y="625" fill="#f87171" font-family="'Inter', sans-serif" font-size="12" font-weight="700">COMPLETELY PRIVATE &amp; UNKNOWN TO OBSERVERS</text>
+  <text x="640" y="648" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="11">• Member secret key (never leaves local browser witness)</text>
+  <text x="640" y="670" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="11">• Which specific commitment belongs to the prover</text>
+  <text x="640" y="692" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="11">• Linkability between multiple proofs by the same prover</text>
+</svg>
