@@ -12,7 +12,8 @@ Built with **Compact smart contracts**, **React + TypeScript**, and the **Midnig
 > See the complete [DEPLOYMENT.md](DEPLOYMENT.md) for full phase-by-phase documentation.
 
 ![CI](https://github.com/ps910/NEW-MOON-PROJECT-/actions/workflows/ci.yml/badge.svg)
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-success?style=flat&logo=github)](https://ps910.github.io/NEW-MOON-PROJECT-/)
+[![Live Demo (ZKGate)](https://img.shields.io/badge/Live%20Demo-ZKGate%20(Active)-success?style=flat&logo=github)](https://ps910.github.io/ZKGate/)
+[![Live Demo (Mirror)](https://img.shields.io/badge/Live%20Demo-NEW--MOON-blue?style=flat&logo=github)](https://ps910.github.io/NEW-MOON-PROJECT-/)
 [![Build Spec](https://img.shields.io/badge/Spec-Level%204%20Build%20Spec-8b5cf6?style=flat)](BUILD_SPEC.md)
 [![Network](https://img.shields.io/badge/Network-Midnight%20Preprod-7c5cfc?style=flat)](https://indexer.preprod.midnight.network)
 [![Tests](https://img.shields.io/badge/Tests-9%20Passing-10b981?style=flat)](screenshots/test-output.svg)
@@ -23,7 +24,8 @@ Built with **Compact smart contracts**, **React + TypeScript**, and the **Midnig
 
 ### 🔗 Quick Links & Verification
 
-- 🌐 **Live DApp Demo**: [https://ps910.github.io/NEW-MOON-PROJECT-/](https://ps910.github.io/NEW-MOON-PROJECT-/)
+- 🌐 **Live DApp Demo (Active)**: [https://ps910.github.io/ZKGate/](https://ps910.github.io/ZKGate/)
+- 🌐 **Live DApp Demo (Mirror)**: [https://ps910.github.io/NEW-MOON-PROJECT-/](https://ps910.github.io/NEW-MOON-PROJECT-/)
 - 📘 **Level 4 Build Spec (Phases 0–10)**: [BUILD_SPEC.md](BUILD_SPEC.md)
 - 📄 **Official Product Proposal**: [PROPOSAL.md](PROPOSAL.md)
 - 🎬 **1-Minute Video Script & Flow**: [DEMO_VIDEO_SCRIPT.md](DEMO_VIDEO_SCRIPT.md)
